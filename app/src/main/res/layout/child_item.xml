@@ -46,7 +46,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/state"
+                android:id="@+id/status"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"

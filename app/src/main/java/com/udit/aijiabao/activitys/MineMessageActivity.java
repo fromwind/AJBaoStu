@@ -391,7 +391,7 @@ public class MineMessageActivity extends BaseActivity implements ExpandableListV
                 holder = new ChildHolder();
                 convertView = LayoutInflater.from(context).inflate(R.layout.child_item, null);
                 holder.content = (TextView) convertView.findViewById(R.id.content);
-                holder.state = (TextView) convertView.findViewById(R.id.state);
+                holder.status = (TextView) convertView.findViewById(R.id.status);
                 holder.time = (TextView) convertView.findViewById(R.id.time);
                 holder.sendmen = (TextView) convertView.findViewById(R.id.sendmen);
                 holder.contenttongzhi = (TextView) convertView.findViewById(R.id.content_tongzhi);
@@ -421,9 +421,9 @@ public class MineMessageActivity extends BaseActivity implements ExpandableListV
             holder.contenttongzhi.setText(a.substring(1, ss - 1) + ":");
             holder.sendmen.setText(messageEntity.getMsg_type().equals("4") ? "系统通知" : "");
             holder.time.setText(messageEntity.getCreated_at());
-            holder.state.setText(!messageEntity.isRead() ? "未读" : "已读");
+            holder.status.setText(!messageEntity.isRead() ? "未读" : "已读");
 
-            holder.state.setTextColor(!messageEntity.isRead() ? getResources().getColor(R.color
+            holder.status.setTextColor(!messageEntity.isRead() ? getResources().getColor(R.color
                     .main_red) : getResources().getColor(R.color.gray_60));
             return convertView;
         }
@@ -444,7 +444,7 @@ public class MineMessageActivity extends BaseActivity implements ExpandableListV
             TextView contenttongzhi;
             TextView time;
             TextView sendmen;
-            TextView state;
+            TextView status;
         }
 
     }

@@ -142,7 +142,7 @@ public class MineSchoolActivity extends BaseActivity {
                     detail = new Gson().fromJson(result, CorpDetail.class);
                     corpName.setText(detail.getName());
                     //logo
-                    imageLoader.displayImage("http://115.159.2.160:8080/ajb.manage/upload/showFile.htm?fileid="+detail.getLogo(),img,options);
+                    imageLoader.displayImage(detail.getLogo(),img,options);
                     if (!TextUtils.isEmpty(detail.getScore())) {
                         ratingBar.setRating(Float.parseFloat(detail.getScore()));
                     } else {
