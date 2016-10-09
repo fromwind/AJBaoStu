@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lLayout_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_white_round"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <!-- android:background="@drawable/progress_frame" -->
+
+    <TextView
+        android:text="温馨提示"
+        android:id="@+id/tv_tip1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/gray_bg"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_10"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="5dp"/>
+    <TextView
+        android:padding="12sp"
+        android:text="温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示"
+        android:id="@+id/tv_tip2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#595757"
+        android:textSize="14sp" />
+
+    <!--<TextView-->
+        <!--android:text="温馨提示"-->
+        <!--android:id="@+id/tv_tip3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:textColor="#595757"-->
+        <!--android:textSize="12sp" />-->
+
+    <!--<TextView-->
+        <!--android:text="温馨提示"-->
+        <!--android:id="@+id/tv_tip4"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:textColor="#595757"-->
+        <!--android:textSize="12sp" />-->
+
+    <TextView
+        android:id="@+id/btn_dialog_ok"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/gray_10bg"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="#808080"
+        android:textSize="15sp" />
+
+</LinearLayout>

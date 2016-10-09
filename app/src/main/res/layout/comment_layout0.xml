@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+              android:background="@color/gray_10"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="练习题"
+        android:textSize="@dimen/font_body" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/order_practice"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/item_click_selector"
+            android:drawablePadding="6dp"
+            android:drawableTop="@mipmap/d00"
+            android:layout_marginRight="1dp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="顺序练习" />
+
+
+        <TextView
+            android:id="@+id/random_practice"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/item_click_selector"
+            android:drawablePadding="6dp"
+            android:drawableTop="@mipmap/d00"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="随机练习" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/specail_practice"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/item_click_selector"
+            android:drawablePadding="6dp"
+            android:drawableTop="@mipmap/d00"
+            android:layout_marginRight="1dp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="专项练习" />
+
+
+        <TextView
+            android:id="@+id/typicla_practice"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/item_click_selector"
+            android:drawablePadding="6dp"
+            android:drawableTop="@mipmap/d00"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="典型例题" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

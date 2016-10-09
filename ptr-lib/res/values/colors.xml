@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#e4e4e4</color>
+    <color name="gray_font">#b8b7bf</color>
+    <color name="gray_font_deep">#595b5d</color>
+    <color name="gray_news">#808080</color>
+    <color name="gray_divider">#dddddd</color>
+    <color name="red">#ff0000</color>
+
+    <!-- <color name="red_font">#ff0000</color> -->
+    <color name="red_stock">#e50000</color>
+    <color name="green">#00ff00</color>
+    <color name="red_font">#BA2514</color>
+    <color name="green_font">#3C7F00</color>
+
+    <!-- <color name="green_font">#088600</color> -->
+    <color name="blue_name">#0966be</color>
+    <color name="bluenew">#44A0FF</color>
+    <color name="bluenewchange">#b6c5ca</color>
+    <color name="blue_name2">#245DDB</color>
+    <color name="blue_menu">#abc7dc</color>
+    <color name="orange">#FFB41B</color>
+    <color name="yellow">#FFE400</color>
+    <color name="green_stock">#44A0FF</color>
+    <color name="changestockbackground">#212121</color>
+    <color name="changeyizhiyuqi">#467cb8</color>
+    <color name="changeyizhiyuqibackground">#b6c5ca</color>
+    <color name="changegray">#e5e5e5</color>
+    <color name="change_black_background">#393838</color>
+    <color name="change_gray_ziti">#c4c4c4</color>
+    <color name="xuangu_orange">#ff9900</color>
+    <!-- 贴图 -->
+    <color name="input_txt_content">#cccccc</color>
+    <color name="article_top_blue">#b6c5ca</color>
+    <color name="mysubscribe_text_white">#feffff</color>
+    <color name="deep_gray_text">#333333</color>
+    <color name="blue_font">#87D9EA</color>
+    <color name="shenghui">#2d2d2d</color>
+    <color name="stock_gray_text">#575757</color>
+    <color name="shujushuoming">#20b3ce</color>
+    <color name="longhushuoming">#20383c</color>
+    <color name="dingyueziti">#1b7485</color>
+    <color name="main_bg_color">#04508b</color>
+     <color name="zdqk_test">#FFA500</color>
+     <color name="half_touming">#b0000000</color>
+     
+
+</resources>

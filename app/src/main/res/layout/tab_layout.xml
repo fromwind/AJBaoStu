@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tab_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:orientation="horizontal">
+
+    <RadioGroup
+        android:background="@color/white"
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="3dp"
+        android:paddingTop="7dp">
+
+        <RadioButton
+            android:id="@+id/tab_home"
+            style="@style/RadioButtonStyle"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/tab_home_bg"
+            android:text="@string/tab_home_text"
+            android:textColor="@drawable/tab_home_bg" />
+
+        <RadioButton
+            android:id="@+id/tab_customer"
+            style="@style/RadioButtonStyle"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/tab_custom_bg"
+            android:text="@string/tab_book_text"
+            android:textColor="@drawable/tab_custom_bg" />
+
+        <RadioButton
+            android:id="@+id/tab_call"
+            style="@style/RadioButtonStyle"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/tab_call_bg"
+            android:text="@string/tab_info_text"
+            android:textColor="@drawable/tab_call_bg" />
+
+        <RadioButton
+            android:id="@+id/tab_person"
+            style="@style/RadioButtonStyle"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/tab_person_bg"
+            android:text="@string/tab_mine_text"
+            android:textColor="@drawable/tab_person_bg" />
+    </RadioGroup>
+
+</LinearLayout>

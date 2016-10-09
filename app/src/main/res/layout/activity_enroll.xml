@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray_10"
+              android:fitsSystemWindows="true"
+              android:clipToPadding="true"
+              android:orientation="vertical">
+
+    <com.udit.aijiabao.widgets.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/schoolaName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_white_round"
+                android:padding="10dp"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:text="爱 驾 宝"
+                android:textSize="@dimen/font_button"
+                android:textColor="@color/gray_80"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                >
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_height"
+                        android:orientation="horizontal"
+                        android:background="@drawable/gray_bg"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="14dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:gravity="center"
+                            android:text="姓名"
+                            android:textSize="@dimen/font_body"/>
+
+                        <com.udit.aijiabao.widgets.ClearEditText
+                            android:id="@+id/name_edit"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/space_small"
+                            android:layout_marginRight="@dimen/space_small"
+                            android:layout_weight="3.0"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请输入姓名"
+                            android:paddingLeft="14dp"
+                            android:singleLine="true"
+                            android:textColor="@color/gray_80"
+                            android:textSize="@dimen/font_body"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@mipmap/arrow_right"
+                            android:visibility="invisible"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/sex_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_height"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/gray_bg"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="14dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:gravity="center"
+                            android:text="性别"
+                            android:textSize="@dimen/font_body"/>
+
+                        <TextView
+                            android:id="@+id/sex"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/space_small"
+                            android:layout_marginRight="@dimen/space_small"
+                            android:layout_weight="3.0"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="14dp"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textColor="@color/gray_80"
+                            android:textSize="@dimen/font_body"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@mipmap/arrow_right"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/gray"/>
+
+
+                    <LinearLayout
+                        android:id="@+id/license_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_height"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/gray_bg"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="14dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:gravity="center"
+                            android:text="驾照类型"
+                            android:textSize="@dimen/font_body"/>
+
+                        <TextView
+                            android:id="@+id/licenseType"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/space_small"
+                            android:layout_marginRight="@dimen/space_small"
+                            android:layout_weight="3.0"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="14dp"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textColor="@color/gray_80"
+                            android:textSize="@dimen/font_body"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@mipmap/arrow_right"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/gray"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_height"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/gray_bg"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="14dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:gravity="center"
+                            android:text="身份证号"
+                            android:textSize="@dimen/font_body"/>
+
+                        <com.udit.aijiabao.widgets.ClearEditText
+                            android:id="@+id/idcard_edit"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/space_small"
+                            android:layout_marginRight="@dimen/space_small"
+                            android:layout_weight="3.0"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请输入身份证号"
+                            android:paddingLeft="14dp"
+                            android:singleLine="true"
+                            android:textColor="@color/gray_80"
+                            android:textSize="@dimen/font_body"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@mipmap/arrow_right"
+                            android:visibility="invisible"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/gray"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_height"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/gray_bg"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="14dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.0"
+                            android:gravity="center"
+                            android:text="手机号"
+                            android:textSize="@dimen/font_body"/>
+
+                        <com.udit.aijiabao.widgets.ClearEditText
+                            android:id="@+id/phone_edit"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/space_small"
+                            android:layout_marginRight="@dimen/space_small"
+                            android:layout_weight="3.0"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请输入手机号"
+                            android:paddingLeft="14dp"
+                            android:singleLine="true"
+                            android:textColor="@color/gray_80"
+                            android:textSize="@dimen/font_body"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@mipmap/arrow_right"
+                            android:visibility="invisible"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/gray"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/pay_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/blue_bg"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="支    付"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_button"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

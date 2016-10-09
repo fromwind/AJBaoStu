@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lLayout_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_white_round"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <!-- android:background="@drawable/progress_frame" -->
+
+    <TextView
+        android:id="@+id/tv_tip1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_tip2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#595757"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_tip3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#595757"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_tip4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#595757"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/btn_dialog_ok"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/prompt_dialog_btn_center_selector"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="#808080"
+        android:textSize="14sp" />
+
+</LinearLayout>

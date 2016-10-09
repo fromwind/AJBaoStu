@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_10"
+              android:fitsSystemWindows="true"
+              android:clipToPadding="true"
+    android:orientation="vertical">
+
+
+    <com.udit.aijiabao.widgets.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@mipmap/login_denglu_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.udit.aijiabao.widgets.ClearEditText
+                    android:id="@+id/et_new_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/space_small"
+                    android:layout_marginRight="@dimen/space_small"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="请输入新密码"
+                    android:inputType="textPassword"
+                    android:maxLength="16"
+                    android:paddingLeft="14dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_80" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@mipmap/login_denglu_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <com.udit.aijiabao.widgets.ClearEditText
+                    android:id="@+id/et_confirm_new_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/space_small"
+                    android:layout_marginRight="@dimen/space_small"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="确认您的密码"
+                    android:inputType="textPassword"
+                    android:maxLength="16"
+                    android:paddingLeft="14dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_80" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/confirm_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@mipmap/login_button_bg"
+            android:text="完    成"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

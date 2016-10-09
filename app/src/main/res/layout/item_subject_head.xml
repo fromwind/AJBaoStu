@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include layout="@layout/comment_layout"/>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/standard_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/item_click_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center">
+
+            <TextView
+                android:background="@drawable/item_click_selector"
+                android:padding="10dp"
+                android:id="@+id/standard_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@mipmap/d00"
+                android:gravity="center"
+                android:text="合格标准"
+                android:textSize="@dimen/font_body" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/experience_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/item_click_selector"
+            android:gravity="center">
+
+            <TextView
+                android:padding="10dp"
+                android:background="@drawable/item_click_selector"
+                android:id="@+id/experience_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@mipmap/d00"
+                android:gravity="center"
+                android:text="考试经验"
+                android:textSize="@dimen/font_body" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/technique_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/item_click_selector"
+            android:gravity="center">
+
+
+            <TextView
+                android:background="@drawable/item_click_selector"
+                android:padding="10dp"
+                android:id="@+id/technique_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableLeft="@mipmap/d00"
+                android:gravity="center"
+                android:text="考试技巧"
+                android:textSize="@dimen/font_body" />
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="教学视频"
+        android:textSize="@dimen/font_body" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        />
+
+</LinearLayout>

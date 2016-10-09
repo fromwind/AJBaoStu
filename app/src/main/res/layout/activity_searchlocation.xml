@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_10"
+    android:orientation="vertical">
+
+    <com.udit.aijiabao.widgets.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <RelativeLayout
+        android:id="@+id/dingwei_search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:padding="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@drawable/edittext_frame">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/search_edit"
+                android:src="@mipmap/search" />
+
+            <AutoCompleteTextView
+                android:imeOptions="actionSearch"
+                android:id="@+id/search_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:completionThreshold="1"
+                android:singleLine="true"
+                android:hint="输入城市名/拼音"
+                android:textColor="@color/gray_80"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/location_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:drawableLeft="@mipmap/location_icon"
+        android:drawablePadding="6dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/gray_bg"
+        android:paddingLeft="16dp"
+        android:text="当前城市：南京" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/result_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/gray_10"
+            android:dividerHeight="0.5dp"
+            android:listSelector="@drawable/item_click_selector" />
+
+
+        <GridView
+            android:id="@+id/hot_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:listSelector="@drawable/item_click_selector"
+            android:numColumns="3"
+            android:visibility="gone" />
+
+
+    </FrameLayout>
+
+</LinearLayout>

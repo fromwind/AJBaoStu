@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+    <com.udit.aijiabao.widgets.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titleView"
+        android:layout_margin="10dp"
+        android:background="@color/white"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleView"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/activity_prepare_test_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/blue_title"
+                    android:textSize="16sp"
+                    />
+
+                <TextView
+                    android:id="@+id/activity_prepare_test_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/gray_80"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <!-- 单选 -->
+
+            <LinearLayout
+                android:id="@+id/activity_prepare_test_radioBtnLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:id="@+id/activity_prepare_test_layout_a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gray_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/vote_submit_select_image_a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_practice_test_normal"/>
+
+                    <TextView
+                        android:id="@+id/vote_submit_select_text_a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="您给出的回答选项？"
+                        android:textColor="@color/gray_60"
+                        android:textSize="16sp"
+                        />
+
+                    <ImageView
+                        android:id="@+id/vote_submit_select_image_a_"
+                        android:layout_width="150dip"
+                        android:layout_height="75dip"
+                        android:layout_marginLeft="8dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_practice_test_normal"
+                        android:visibility="gone"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/activity_prepare_test_layout_b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gray_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/vote_submit_select_image_b"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_practice_test_normal"/>
+
+                    <TextView
+                        android:id="@+id/vote_submit_select_text_b"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="您给出的回答选项？"
+                        android:textColor="@color/gray_60"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:id="@+id/vote_submit_select_image_b_"
+                        android:layout_width="150dip"
+                        android:layout_height="75dip"
+                        android:layout_marginLeft="8dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_practice_test_normal"
+                        android:visibility="gone"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/activity_prepare_test_layout_c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gray_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/vote_submit_select_image_c"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_practice_test_normal"/>
+
+                    <TextView
+                        android:id="@+id/vote_submit_select_text_c"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="您给出的回答选项？"
+                        android:textColor="@color/gray_60"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:id="@+id/vote_submit_select_image_c_"
+                        android:layout_width="150dip"
+                        android:layout_height="75dip"
+                        android:layout_marginLeft="8dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_practice_test_normal"
+                        android:visibility="gone"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/activity_prepare_test_layout_d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gray_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/vote_submit_select_image_d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_practice_test_normal"/>
+
+                    <TextView
+                        android:id="@+id/vote_submit_select_text_d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="您给出的回答选项？"
+                        android:textColor="@color/gray_60"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:id="@+id/vote_submit_select_image_d_"
+                        android:layout_width="150dip"
+                        android:layout_height="75dip"
+                        android:layout_marginLeft="8dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_practice_test_normal"
+                        android:visibility="gone"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/activity_prepare_test_layout_e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gray_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/vote_submit_select_image_e"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_practice_test_normal"/>
+
+                    <TextView
+                        android:id="@+id/vote_submit_select_text_e"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="您给出的回答选项？"
+                        android:textColor="@color/gray_60"
+                        android:textSize="16sp"/>
+
+                    <ImageView
+                        android:id="@+id/vote_submit_select_image_e_"
+                        android:layout_width="150dip"
+                        android:layout_height="75dip"
+                        android:layout_marginLeft="8dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_practice_test_normal"
+                        android:visibility="gone"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- 错题分析 -->
+
+            <LinearLayout
+                android:id="@+id/activity_prepare_test_wrongLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="@dimen/btn_height"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="gone"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_practice_test_analyze"/>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/ic_practice_test_explaindetail"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/activity_prepare_test_explaindetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/chocolate"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
