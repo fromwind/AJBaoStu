@@ -56,14 +56,13 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        db = x.getDb(((MyApplication) getApplication()).getDaoConfig());
         super.onCreate(savedInstanceState);
+        db = x.getDb(((MyApplication) getApplication()).getDaoConfig());
         x.view().inject(this);
         ActivityCollector.addActivity(this);
         LocationManager.startLocation(this);
         radioGroup.setOnCheckedChangeListener(this);
         radioGroup.check(currentId);
-
     }
 
     @Override
@@ -86,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             topDrawable.setBounds(0, 0, topDrawable.getMinimumWidth(), topDrawable.getMinimumHeight());
             tab_person.setCompoundDrawables(null, topDrawable, null, null);
         }
-
     }
 
     public boolean queryNotRead() {
@@ -139,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 }
                 break;
         }
-
         switchFragment(fragmentMap.get(currentId), fragmentMap.get(id));
         currentId = id;
     }
@@ -176,14 +173,12 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             case 0:
                 radioGroup.check(R.id.tab_customer);
                 break;
-
             case 1:
                 radioGroup.check(R.id.tab_home);
 
                 if (fragmentMap.containsKey(R.id.tab_customer)) {
                     ft.remove(fragmentMap.get(R.id.tab_customer));
                 }
-
                 fragmentMap.remove(R.id.tab_customer);
                 break;
 
@@ -192,9 +187,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                     ft.remove(fragmentMap.get(R.id.tab_customer));
                 }
                 fragmentMap.remove(R.id.tab_customer);
-
                 break;
-
         }
     }
 

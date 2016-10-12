@@ -79,6 +79,7 @@ public class MyApplication extends Application {
             });
             config.setAllowTransaction(true);
             //是否允许开启事务
+
             SDKInitializer.initialize(this);
             initImageLoader();
         }

@@ -150,7 +150,6 @@ public class PersonFragment extends Fragment {
         } catch (DbException e) {
             e.printStackTrace();
         }
-
         String a = String.valueOf(all.size());
         if (!a.equals("0")) {
             badgeView.setText(a);

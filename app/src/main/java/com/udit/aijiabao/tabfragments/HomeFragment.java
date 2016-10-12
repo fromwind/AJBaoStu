@@ -335,7 +335,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     public void onEventMainThread(Events.Refresh refresh) {
         if (refresh.refresh) {
-            Log.e(TAG, "onEventMainThread=" + refresh.refresh);
+            Log.e("bum", "onEventMainThread--refresh.refresh");
             initDatas();
         }
     }

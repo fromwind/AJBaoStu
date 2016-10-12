@@ -98,7 +98,6 @@ public class MineMessageActivity extends BaseActivity implements ExpandableListV
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo) {
-
         super.onCreateContextMenu(menu, v, menuInfo);
         ExpandableListView.ExpandableListContextMenuInfo info = (ExpandableListView.ExpandableListContextMenuInfo)
                 menuInfo;
@@ -301,7 +300,6 @@ public class MineMessageActivity extends BaseActivity implements ExpandableListV
             adapters.setGroupList(groupList);
             adapters.notifyDataSetChanged();
         }
-
         return true;
     }
 
