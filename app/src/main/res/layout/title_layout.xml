@@ -8,9 +8,10 @@
             android:id="@+id/title_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
             android:paddingBottom="9dp"
-            android:paddingLeft="@dimen/space_middle"
-            android:paddingRight="@dimen/space_middle"
+            android:paddingLeft="@dimen/space_huge"
+            android:paddingRight="@dimen/space_huge"
             android:paddingTop="9dp"
             android:src="@mipmap/back_bg"/>
 

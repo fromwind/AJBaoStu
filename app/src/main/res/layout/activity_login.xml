@@ -136,13 +136,13 @@
 
             <Button
                 android:id="@+id/mLogin_btn"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="20dp"
-                android:background="@mipmap/login_button_bg"
+                android:background="@drawable/btn_selector_blue"
                 android:text="@string/login_denglu"
                 android:textColor="@color/white"
                 android:textSize="18sp"/>

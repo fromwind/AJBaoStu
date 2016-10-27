@@ -53,8 +53,8 @@
         android:background="@drawable/prompt_dialog_btn_center_selector"
         android:clickable="true"
         android:gravity="center"
-        android:text="确定"
-        android:textColor="#808080"
+        android:text="确 定"
+        android:textColor="@color/white"
         android:textSize="14sp" />
 
 </LinearLayout>

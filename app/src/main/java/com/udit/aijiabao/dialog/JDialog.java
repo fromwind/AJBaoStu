@@ -181,7 +181,7 @@ public class JDialog {
         pButton.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
                 dip2px(mContext, 50), 1.0f));
         pButton.setTextColor(mContext.getResources().getColor(
-                R.color.auxiliary_blue));
+                R.color.blue_title));
         // 动态添加按钮
         LinearLayout buttonLayout = (LinearLayout) view
                 .findViewById(R.id.buttonLayout);
@@ -218,7 +218,7 @@ public class JDialog {
                         LayoutParams.MATCH_PARENT, dip2px(mContext, 50), 1.0f));
                 otherButton.setText(otherButtons[i]);
                 otherButton.setTextColor(mContext.getResources().getColor(
-                        R.color.auxiliary_blue));
+                        R.color.blue_title));
                 if (1 == otherButtons.length) {
                     otherButton
                             .setBackgroundResource(R.drawable.alert_right_button);

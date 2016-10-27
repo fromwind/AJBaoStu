@@ -131,7 +131,6 @@ public class AppointFragment extends Fragment implements AdapterView.OnItemClick
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = x.view().inject(this, inflater, container);
         EventBus.getDefault().register(this);
-        Log.e("Bum","appointRun__________");
 
         return view;
     }
@@ -345,8 +344,8 @@ public class AppointFragment extends Fragment implements AdapterView.OnItemClick
         if (!TextUtils.isEmpty(phone)) {
             PromptDialog.Builder dialog = new PromptDialog.Builder(getContext());
             dialog.setTitle("拨打电话");
-            dialog.setMessage(phone.trim());
-            dialog.setMessageColor(getResources().getColor(R.color.main_red));
+            dialog.setMessage2(phone.trim());
+            dialog.setMessage2Color(getResources().getColor(R.color.main_red));
             dialog.setButton1(R.string.cancel,
                     new PromptDialog.OnClickListener() {
                         @Override
@@ -413,16 +412,23 @@ public class AppointFragment extends Fragment implements AdapterView.OnItemClick
 
             @ViewInject(R.id.left_listview_item)
             private LinearLayout item;
-
+            @ViewInject(R.id.listview_appoint_left_blue)
+            private View blueview;
             @Override
             public void loadData(BookingsBean data, int position) {
                 week.setText(data.getWeek());
                 date.setText(data.getDate());
 
                 if (position == selectItem) {
-                    item.setBackgroundColor(getResources().getColor(R.color.gray_10));
+                    item.setBackgroundColor(getResources().getColor(R.color.gray_20));
+                    week.setTextColor(getResources().getColor(R.color.black));
+                    date.setTextColor(getResources().getColor(R.color.black));
+                    blueview.setVisibility(View.VISIBLE);
                 } else {
+                    week.setTextColor(getResources().getColor(R.color.gray_80));
+                    date.setTextColor(getResources().getColor(R.color.gray_80));
                     item.setBackgroundColor(getResources().getColor(R.color.white));
+                    blueview.setVisibility(View.INVISIBLE);
                 }
             }
         }
@@ -490,7 +496,7 @@ public class AppointFragment extends Fragment implements AdapterView.OnItemClick
                     surplus.setText((data.getAvailable_count() == 0) ? "已满" : "剩余" + data.getAvailable_count() + "人");
 
                     item_btn.setText(data.isBooked() ? "取消" : "预约");
-                    item_btn.setTextColor(data.isBooked() ? getResources().getColor(R.color.white) : getResources().getColor(R.color.gray_80));
+                    item_btn.setTextColor(getResources().getColor(R.color.white));
                     item_btn.setBackgroundResource(data.isBooked() ? R.drawable.btn_cancle_bg : R.drawable.btn_confirm_bg);
                     if (data.getAvailable_count()!=0){
                         item_btn.setClickable(true);
@@ -515,10 +521,10 @@ public class AppointFragment extends Fragment implements AdapterView.OnItemClick
                     if(itemsBean.isBooked()){
                         //取消预约操作
                         Log.e("Bum","点击取消预约操作");
-                        PromptDialog.Builder pDialog = new PromptDialog.Builder(
+                        final PromptDialog.Builder pDialog = new PromptDialog.Builder(
                                 getContext());
                         pDialog.setTitle("温馨提示");
-                        pDialog.setMessage(context.getString(R.string.reminder_info));
+                        pDialog.setMessage2(context.getString(R.string.reminder_info));
                         pDialog.setButton1("返回", new PromptDialog.OnClickListener() {
                             @Override
                             public void onClick(Dialog dialog, int which) {
@@ -528,6 +534,7 @@ public class AppointFragment extends Fragment implements AdapterView.OnItemClick
                         pDialog.setButton2("确认", new PromptDialog.OnClickListener() {
                             @Override
                             public void onClick(Dialog dialog, int which) {
+                                pDialog.setButton2TextColor(getResources().getColor(R.color.white));
                                 dialog.dismiss();
 
                                 Log.e("Bum",""+bean.getDate()+"/"+itemsBean.getPeriod());

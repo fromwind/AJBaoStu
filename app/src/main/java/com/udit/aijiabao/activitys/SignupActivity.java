@@ -1,7 +1,6 @@
 package com.udit.aijiabao.activitys;
 
 import android.os.CountDownTimer;
-import android.support.design.widget.TabLayout;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;

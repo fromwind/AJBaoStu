@@ -45,7 +45,7 @@
         <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1.4"
             android:paddingRight="10dp">
 
             <LinearLayout
@@ -58,19 +58,22 @@
                     android:id="@+id/item_surplus"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1.0"
+                    android:layout_weight="0.7"
                     android:gravity="center"
                     android:text="剩余5人"
                     android:textSize="@dimen/font_body" />
 
                 <TextView
                     android:id="@+id/item_btn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/btn_confirm_bg"
+                    android:background="@drawable/blue_bg_normal"
+                    android:layout_marginRight="5dp"
                     android:gravity="center"
                     android:text="预约"
-                    android:textColor="@color/gray_80"
+                    android:padding="3dp"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/font_body" />
 
 

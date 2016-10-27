@@ -10,11 +10,7 @@ import android.view.MotionEvent;
  */
 public class VoteSubmitViewPager extends ViewPager {
 
-	private boolean isScrollable = false;
-
-	public boolean isScrollable() {
-		return isScrollable;
-	}
+	private boolean isScrollable = true;
 
 	public void setScrollable(boolean isScrollable) {
 		this.isScrollable = isScrollable;
@@ -26,6 +22,11 @@ public class VoteSubmitViewPager extends ViewPager {
 
 	public VoteSubmitViewPager(Context context, AttributeSet attrs) {
 		super(context, attrs);
+	}
+
+	@Override
+	public void setOffscreenPageLimit(int limit) {
+		super.setOffscreenPageLimit(limit);
 	}
 
 	@Override

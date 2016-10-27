@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="报名材料:"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray_40"
+                android:layout_gravity="right"
+                android:text="2016-10-19"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_30"
+                android:layout_marginBottom="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="根据报名驾校的要求，我们一般需要准备如下证件和材料："
+                android:textColor="@color/gray_90"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:lineSpacingExtra="4dp"
+                android:text="1、身份证原件及复印件；\n\n2、户口不在本地的准备暂住证或居住证的原件和复印件；\n\n3、近期正面免冠一寸白底彩色相片5-7张（如近视者需要提交佩戴眼镜的照片）；\n\n4、《机动车驾驶人体检条件证明》一份。\n一般需由县级或者部队团级以上医疗机构出具。如申请残疾人专用小型自动挡载客汽车的，应当提交经省级卫生主管部门指定的专门医疗机构出具的有关身体条件的证明。"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

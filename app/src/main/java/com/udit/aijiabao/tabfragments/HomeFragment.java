@@ -348,6 +348,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         if (event.isConnected) {
             nonet.setVisibility(View.GONE);
         } else nonet.setVisibility(View.VISIBLE);
+        onRefresh();
     }
 
     @Override
@@ -845,13 +846,14 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 PromptDialog.Builder pDialog = new PromptDialog.Builder(
                         getContext());
                 pDialog.setTitle("温馨提示");
-                pDialog.setMessage(context.getString(R.string.reminder_info));
+                pDialog.setMessage2(context.getString(R.string.reminder_info));
                 pDialog.setButton1("取消", new PromptDialog.OnClickListener() {
                     @Override
                     public void onClick(Dialog dialog, int which) {
                         dialog.dismiss();
                     }
                 });
+                pDialog.setButton2TextColor(getResources().getColor(R.color.white));
                 pDialog.setButton2("确认", new PromptDialog.OnClickListener() {
                     @Override
                     public void onClick(Dialog dialog, int which) {

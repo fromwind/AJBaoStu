@@ -7,7 +7,8 @@
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     <!-- 这个权限用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <!-- 这个权限用于访问GPS定位 -->
@@ -178,19 +179,32 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
-        <!--做题-->
+        <!-- 做题 -->
         <activity
-            android:name=".activitys.AnalogyExaminationActivity"
+            android:name=".activitys.PracticeActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            />
+            android:theme="@style/AppTheme"/>
         <activity
-            android:name=".activitys.MyErrorQuestionActivity"
+            android:name=".activitys.RealPracticeActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            />
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".activitys.Practice4Activity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".activitys.RealPractice4Activity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".activitys.ApplyKnow"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <!-- 支付宝 -->
 
         <activity
@@ -216,6 +230,11 @@
             android:process=":remote"/>
 
         <activity android:name=".activitys.ActivityWeb">
+        </activity>
+        <activity android:name=".activitys.ClassListActivity">
+
+        </activity>
+        <activity android:name=".activitys.ClassList4Activity">
         </activity>
     </application>
 

@@ -6,11 +6,13 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.util.Log;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.udit.aijiabao.configs.Constants;
 import com.udit.aijiabao.receiver.NetConnectReceiver;
 import com.udit.aijiabao.utils.EventEntity;
+import com.udit.aijiabao.utils.FileUtils;
 import com.udit.aijiabao.utils.PreferencesUtils;
 
 import org.xutils.DbManager;
@@ -34,6 +36,8 @@ public class MyApplication extends Application {
 
     private static MyApplication instance;
     private DbManager.DaoConfig config;
+    private DbManager.DaoConfig config1;
+    private DbManager.DaoConfig config4;
     private NetConnectReceiver netConnectReceiver;
 
     public static MyApplication getInstance() {
@@ -53,12 +57,17 @@ public class MyApplication extends Application {
             registerReceiver();
             PreferencesUtils.init(this);
             x.Ext.init(this);
-
+            File Dbfile=new File(FileUtils.getDBPath());
             x.Ext.setDebug(true);//是否输出Debug日志
             config = new DbManager.DaoConfig();
+            config1=new DbManager.DaoConfig();
+            config4=new DbManager.DaoConfig();
             //每一个config对象描述一个数据库，多个数据库就创建多个config对象
             //这里作为示例，我们只创建一个名字为dbName版本号为1的数据库
             config.setDbName("Bum").setDbVersion(1);//设置数据库版本号
+            config1.setDbName("db1").setDbVersion(1).setDbDir(Dbfile);
+            //Log.e("bum_config1_db1:",config1.getDbDir().toString());
+            config4.setDbName("db4").setDbVersion(1).setDbDir(Dbfile);
             //config.setDbDir(File file);
             // 该语句会将数据库文件保存在你想存储的地方
             //如果不设置则默认存储在应用程序目录下/database/dbName.db
@@ -87,6 +96,12 @@ public class MyApplication extends Application {
 
     public DbManager.DaoConfig getDaoConfig() {
         return config;
+    }
+    public DbManager.DaoConfig getDaoConfig1() {
+        return config1;
+    }
+    public DbManager.DaoConfig getDaoConfig4() {
+        return config4;
     }
 
     private void initWeatherPic() {

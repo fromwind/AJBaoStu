@@ -5,11 +5,11 @@
     <corners android:radius="6dp" />
 
     <!-- 填充 -->
-    <solid android:color="@color/gray_30" />
+    <solid android:color="@color/blue" />
 
     <stroke
         android:width="0.5dp"
-        android:color="@color/gray_30" />
+        android:color="@color/blue" />
 
     <!-- 边框 -->
     <padding

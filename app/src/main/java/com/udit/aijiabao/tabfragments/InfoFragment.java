@@ -25,7 +25,6 @@ import com.udit.aijiabao.fragments.SubjectFourFragment;
 import com.udit.aijiabao.fragments.SubjectOneFragment;
 import com.udit.aijiabao.fragments.SubjectThreeFragment;
 import com.udit.aijiabao.fragments.SubjectTwoFragment;
-import com.udit.aijiabao.widgets.TitleView;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;

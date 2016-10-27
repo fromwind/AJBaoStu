@@ -298,7 +298,7 @@ public class MineAppointActivty extends BaseActivity implements AdapterView.OnIt
                         PromptDialog.Builder pDialog = new PromptDialog.Builder(
                                 context);
                         pDialog.setTitle("温馨提示");
-                        pDialog.setMessage(context.getString(R.string.reminder_info));
+                        pDialog.setMessage2(context.getString(R.string.reminder_info));
                         pDialog.setButton1("取消", new PromptDialog.OnClickListener() {
                             @Override
                             public void onClick(Dialog dialog, int which) {

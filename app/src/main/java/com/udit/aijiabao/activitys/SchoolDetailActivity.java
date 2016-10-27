@@ -315,8 +315,8 @@ public class SchoolDetailActivity extends BaseActivity {
             PromptDialog.Builder dialog = new PromptDialog.Builder(
                     this);
             dialog.setTitle("拨打电话");
-            dialog.setMessage(detail.getTel().trim());
-            dialog.setMessageColor(getResources().getColor(R.color.main_red));
+            dialog.setMessage2(detail.getTel().trim());
+            dialog.setMessage2Color(getResources().getColor(R.color.main_red));
             dialog.setButton1(R.string.cancel,
                     new PromptDialog.OnClickListener() {
                         @Override

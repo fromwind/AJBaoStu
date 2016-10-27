@@ -159,8 +159,8 @@ public class MineCoachActivity extends BaseActivity {
         if (!TextUtils.isEmpty(phone)) {
             PromptDialog.Builder dialog = new PromptDialog.Builder(this);
             dialog.setTitle("拨打电话");
-            dialog.setMessage(phone.trim());
-            dialog.setMessageColor(getResources().getColor(R.color.main_red));
+            dialog.setMessage2(phone.trim());
+            dialog.setMessage2Color(getResources().getColor(R.color.main_red));
             dialog.setButton1(R.string.cancel,
                     new PromptDialog.OnClickListener() {
                         @Override

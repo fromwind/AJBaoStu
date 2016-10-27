@@ -19,12 +19,12 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:textColor="#000"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gray_10"
+        android:background="@color/gray_60"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="5dp"/>
@@ -62,11 +62,11 @@
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:layout_weight="1"
-        android:background="@drawable/gray_10bg"
+        android:background="@drawable/prompt_dialog_btn_center_selector"
         android:clickable="true"
         android:gravity="center"
         android:text="确定"
-        android:textColor="#808080"
+        android:textColor="@color/white"
         android:textSize="15sp" />
 
 </LinearLayout>

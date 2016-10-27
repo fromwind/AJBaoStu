@@ -20,10 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.udit.aijiabao.dialog.PromptDialog;
-
-import org.xutils.view.annotation.ContentView;
-import org.xutils.view.annotation.ViewInject;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -75,7 +71,6 @@ public class UpdateManager {
             }
         }
 
-        ;
     };
 
     public UpdateManager(Context context) {
@@ -151,7 +146,7 @@ public class UpdateManager {
         // 构造对话框
         PromptDialog.Builder builder = new PromptDialog.Builder(mContext);
         builder.setTitle("提示");
-        builder.setMessage("检查到新版本！");
+        builder.setMessage1("检查到新版本！");
         // 更新
         builder.setButton1("更新", new PromptDialog.OnClickListener() {
             @Override
@@ -181,7 +176,7 @@ public class UpdateManager {
         // 给下载对话框增加进度条
         final LayoutInflater inflater = LayoutInflater.from(mContext);
         View v = inflater.inflate(R.layout.softupdate_progress, null);
-        mProgress = (ProgressBar) v.findViewById(R.id.update_progress);
+        mProgress = (ProgressBar) v.findViewById(R.id.update_progress1);
         builder.setView(v);
         // 取消更新
         builder.setButton1("取消", new PromptDialog.OnClickListener() {

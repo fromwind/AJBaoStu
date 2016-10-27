@@ -290,20 +290,19 @@
     <color name="title_operator_color">#FFFFFFFF</color>//ffe93a3b
     <color name="gray_20">#DDDDDD</color>
     <color name="graytext">#8E8E8E</color>
-    <color name="blue_title">#4EC2E9</color>//78 194 233
+    <color name="blue_title">#007ED5</color>//78 194 233
     <color name="blue_press">#4EDFFF</color>
     <color name="gray_80">#ff595757</color>
     <color name="line_center">#ffdcdddd</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="dialog_orange">#FF7B02</color>
-    <color name="auxiliary_blue">#ffE93B3C</color>
     <color name="dialogColor">#f0ffffff</color>
     <color name="dialog_gray">#e4e4e4</color>
     <color name="gray_40">#ffb5b5b6</color>
     <color name="gray_30">#ffc9caca</color>
     <color name="gray_60">#666666</color>
     <color name="main_red">#ff5a5f</color>
-    <color name="text_color">#BABABA</color>gray
+    <color name="text_color">#BABABA</color>
 
     <color name="tab_gray">#ffa1a1a1</color>
 

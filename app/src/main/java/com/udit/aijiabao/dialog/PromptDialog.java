@@ -86,7 +86,8 @@ public class PromptDialog extends Dialog {
 		private Context context;
 
 		private CharSequence title;
-		private CharSequence message;
+		private CharSequence message1;
+		private CharSequence message2;
 		private CharSequence button1Text;
 		private CharSequence button2Text;
 		private CharSequence button3Text;
@@ -94,14 +95,17 @@ public class PromptDialog extends Dialog {
 		private int button2TextColor;
 		private int button3TextColor;
 		private int titleColor;
-		private int messageColor;
+		private int message1Color;
+		private int message2Color;
 		private float button1Size;
 		private float button2Size;
 		private float button3Size;
 		private float titleSize;
-		private float messageSize;
+		private float message1Size;
+		private float message2Size;
 		private ColorStateList titleColorStateList;
-		private ColorStateList messageColorStateList;
+		private ColorStateList message1ColorStateList;
+		private ColorStateList message2ColorStateList;
 		private ColorStateList button1ColorStateList;
 		private ColorStateList button2ColorStateList;
 		private ColorStateList button3ColorStateList;
@@ -137,13 +141,15 @@ public class PromptDialog extends Dialog {
 			this.button1TextColor = Color.parseColor("#808080");
 			this.button2TextColor = Color.parseColor("#808080");
 			this.button3TextColor = Color.parseColor("#808080");
-			this.messageColor = Color.parseColor("#696969");
+			this.message1Color = Color.parseColor("#696969");
+			this.message2Color = Color.parseColor("#696969");
 			this.titleColor = Color.BLACK;
 
 			this.button1Size = 16;
 			this.button2Size = 16;
 			this.button3Size = 16;
-			this.messageSize = 15;
+			this.message1Size = 15;
+			this.message2Size = 15;
 			this.titleSize = 18;
 
 			this.titleBarGravity = Gravity.CENTER;
@@ -193,31 +199,51 @@ public class PromptDialog extends Dialog {
 			return this;
 		}
 
-		public Builder setMessage(CharSequence message) {
-			this.message = message;
+		public Builder setMessage1(CharSequence message) {
+			this.message1 = message;
 			return this;
 		}
 
-		public Builder setMessage(int messageResId) {
-			this.message = context.getResources().getString(messageResId);
+		public Builder setMessage1(int messageResId) {
+			this.message1 = context.getResources().getString(messageResId);
+			return this;
+		}
+		public Builder setMessage2(CharSequence message) {
+			this.message2 = message;
 			return this;
 		}
 
-		public Builder setMessageColor(int color) {
-			this.messageColor = color;
+		public Builder setMessage2(int messageResId) {
+			this.message2 = context.getResources().getString(messageResId);
+			return this;
+		}
+		public Builder setMessage1Color(int color) {
+			this.message1Color = color;
 			return this;
 		}
 
-		public Builder setMessageColor(ColorStateList color) {
-			this.messageColorStateList = color;
+		public Builder setMessage1Color(ColorStateList color) {
+			this.message1ColorStateList = color;
+			return this;
+		}
+		public Builder setMessage2Color(int color) {
+			this.message2Color = color;
 			return this;
 		}
 
-		public Builder setMessageSize(float size) {
-			this.messageSize = size;
+		public Builder setMessage2Color(ColorStateList color) {
+			this.message2ColorStateList = color;
 			return this;
 		}
 
+		public Builder setMessage1Size(float size) {
+			this.message1Size = size;
+			return this;
+		}
+		public Builder setMessage2Size(float size) {
+			this.message2Size = size;
+			return this;
+		}
 		public Builder setButton1(CharSequence text,
 		                          OnClickListener listener) {
 			this.button1Text = text;
@@ -358,7 +384,7 @@ public class PromptDialog extends Dialog {
 
 			View mView;
 			switch (viewStyle) {
-				case VIEW_STYLE_TITLE_BAR:
+				/*case VIEW_STYLE_TITLE_BAR:
 					mView = LayoutInflater.from(context).inflate(
 							R.layout.dialog_prompt_titlebar, null);
 					break;
@@ -366,7 +392,7 @@ public class PromptDialog extends Dialog {
 					mView = LayoutInflater.from(context).inflate(
 							R.layout.dialog_prompt_titlebar_skyblue, null);
 					break;
-				case VIEW_STYLE_NORMAL:
+				case VIEW_STYLE_NORMAL:*/
 				default:
 					mView = LayoutInflater.from(context).inflate(
 							R.layout.dialog_prompt_normal, null);
@@ -375,7 +401,8 @@ public class PromptDialog extends Dialog {
 
 			LinearLayout mTitleBar = (LinearLayout) mView.findViewById(R.id.title_bar);
 			TextView mTitle = (TextView) mView.findViewById(R.id.title);
-			TextView mMessage = (TextView) mView.findViewById(R.id.message);
+			TextView mMessage1 = (TextView) mView.findViewById(R.id.message1);
+			TextView mMessage2=(TextView) mView.findViewById(R.id.message2);
 			LinearLayout addView = (LinearLayout) mView.findViewById(R.id.layout_add_view);
 			TextView btnLeft = (TextView) mView.findViewById(R.id.button_left);
 			TextView btnCenter = (TextView) mView.findViewById(R.id.button_center);
@@ -399,20 +426,29 @@ public class PromptDialog extends Dialog {
 				mTitle.setVisibility(View.GONE);
 			}
 
-			if (message != null) {
-				mMessage.setVisibility(View.VISIBLE);
-				mMessage.setText(message);
-				mMessage.setTextSize(messageSize);
-				mMessage.setTextColor(messageColor);
-				if (messageColorStateList != null) {
-					mMessage.setTextColor(messageColorStateList);
+			if (message1 != null) {
+				mMessage1.setVisibility(View.VISIBLE);
+				mMessage1.setText(message1);
+				mMessage1.setTextSize(message1Size);
+				mMessage1.setTextColor(message1Color);
+				if (message1ColorStateList != null) {
+					mMessage1.setTextColor(message1ColorStateList);
 				}
 			} else {
-				mMessage.setVisibility(View.GONE);
+				mMessage1.setVisibility(View.GONE);
 			}
-
+			if (message2 != null) {
+				mMessage2.setVisibility(View.VISIBLE);
+				mMessage2.setText(message2);
+				mMessage2.setTextSize(message2Size);
+				mMessage2.setTextColor(message2Color);
+				if (message2ColorStateList != null) {
+					mMessage2.setTextColor(message2ColorStateList);
+				}
+			} else {
+				mMessage2.setVisibility(View.GONE);
+			}
 			if (view != null) {
-				addView.removeAllViews();
 				addView.addView(view);
 				addView.setGravity(Gravity.CENTER);
 			}

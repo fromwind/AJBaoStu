@@ -70,7 +70,7 @@
                         android:id="@+id/vote_submit_select_image_a"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_practice_test_normal"/>
+                        android:src="@mipmap/ic_practice_test_normal"/>
 
                     <TextView
                         android:id="@+id/vote_submit_select_text_a"
@@ -88,7 +88,7 @@
                         android:layout_height="75dip"
                         android:layout_marginLeft="8dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_practice_test_normal"
+                        android:src="@mipmap/ic_practice_test_normal"
                         android:visibility="gone"
                         />
 
@@ -107,7 +107,7 @@
                         android:id="@+id/vote_submit_select_image_b"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_practice_test_normal"/>
+                        android:src="@mipmap/ic_practice_test_normal"/>
 
                     <TextView
                         android:id="@+id/vote_submit_select_text_b"
@@ -124,7 +124,7 @@
                         android:layout_height="75dip"
                         android:layout_marginLeft="8dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_practice_test_normal"
+                        android:src="@mipmap/ic_practice_test_normal"
                         android:visibility="gone"
                         />
                 </LinearLayout>
@@ -142,7 +142,7 @@
                         android:id="@+id/vote_submit_select_image_c"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_practice_test_normal"/>
+                        android:src="@mipmap/ic_practice_test_normal"/>
 
                     <TextView
                         android:id="@+id/vote_submit_select_text_c"
@@ -159,7 +159,7 @@
                         android:layout_height="75dip"
                         android:layout_marginLeft="8dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_practice_test_normal"
+                        android:src="@mipmap/ic_practice_test_normal"
                         android:visibility="gone"
                         />
                 </LinearLayout>
@@ -177,7 +177,7 @@
                         android:id="@+id/vote_submit_select_image_d"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_practice_test_normal"/>
+                        android:src="@mipmap/ic_practice_test_normal"/>
 
                     <TextView
                         android:id="@+id/vote_submit_select_text_d"
@@ -194,7 +194,7 @@
                         android:layout_height="75dip"
                         android:layout_marginLeft="8dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_practice_test_normal"
+                        android:src="@mipmap/ic_practice_test_normal"
                         android:visibility="gone"
                         />
                 </LinearLayout>
@@ -212,7 +212,7 @@
                         android:id="@+id/vote_submit_select_image_e"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_practice_test_normal"/>
+                        android:src="@mipmap/ic_practice_test_normal"/>
 
                     <TextView
                         android:id="@+id/vote_submit_select_text_e"
@@ -229,7 +229,7 @@
                         android:layout_height="75dip"
                         android:layout_marginLeft="8dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_practice_test_normal"
+                        android:src="@mipmap/ic_practice_test_normal"
                         android:visibility="gone"
                         />
                 </LinearLayout>
@@ -258,14 +258,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/ic_practice_test_analyze"/>
+                        android:src="@mipmap/ic_practice_test_analyze"/>
                 </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:background="@drawable/ic_practice_test_explaindetail"
                     android:gravity="center"
                     android:orientation="vertical">
 

@@ -13,6 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/gray_20"
             android:orientation="vertical">
 
             <include layout="@layout/comment_layout" />
@@ -20,22 +21,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_height"
-                android:background="@color/gray_10"
+                android:background="@color/gray"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/project01_apply"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.0"
+                    android:background="@drawable/item_click_selector"
                     android:layout_marginRight="1dp"
+                    android:orientation="horizontal"
                     android:gravity="center">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@mipmap/project01_apply_img"/>
                     <TextView
                         android:background="@drawable/item_click_selector"
-                        android:padding="10dp"
-                        android:layout_width="match_parent"
+                        android:padding="5dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:drawableLeft="@mipmap/d00"
                         android:gravity="center"
                         android:text="报名须知"
                         android:textSize="@dimen/font_body" />
@@ -44,18 +52,23 @@
 
 
                 <LinearLayout
+                    android:id="@+id/project01_laws"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:background="@drawable/item_click_selector"
                     android:layout_weight="1.0"
                     android:layout_marginRight="1dp"
                     android:gravity="center">
-
-                    <TextView
-                        android:background="@drawable/item_click_selector"
-                        android:padding="10dp"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:drawableLeft="@mipmap/d00"
+                        android:src="@mipmap/project01_laws_img"
+                        android:scaleY="0.9"
+                        android:scaleX="0.8"/>
+                    <TextView
+                        android:padding="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="交通法规"
                         android:textSize="@dimen/font_body" />
@@ -63,18 +76,22 @@
 
 
                 <LinearLayout
+                    android:id="@+id/project01_green_hand"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:background="@drawable/item_click_selector"
                     android:layout_weight="1.0"
                     android:gravity="center">
-
-
-                    <TextView
-                        android:background="@drawable/item_click_selector"
-                        android:padding="10dp"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:drawableLeft="@mipmap/d00"
+                        android:src="@mipmap/project01_green_img"
+                        android:scaleY="0.8"
+                        android:scaleX="0.8"/>
+                    <TextView
+                        android:padding="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="新手上路"
                         android:textSize="@dimen/font_body" />

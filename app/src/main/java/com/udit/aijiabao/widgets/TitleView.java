@@ -134,7 +134,15 @@ public class TitleView extends LinearLayout {
 		mOperateView.setVisibility(VISIBLE);
 		mOperateImgView.setVisibility(GONE);
 	}
-
+	/**
+	 * 设置标题栏右侧按钮文本颜色
+	 */
+	public void setOperateTextColor(int color) {
+		mOperateView.setBackgroundColor(Color.TRANSPARENT);
+		mOperateView.setTextColor(color);
+		mOperateView.setVisibility(VISIBLE);
+		mOperateImgView.setVisibility(GONE);
+	}
 	/**
 	 * 设置标题栏右侧按钮监图标
 	 */

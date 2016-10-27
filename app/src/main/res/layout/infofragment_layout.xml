@@ -9,7 +9,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="17dp"
         android:background="@color/blue_title"/>
 
     <RelativeLayout
@@ -27,13 +27,6 @@
             android:textColor="@color/white"
             android:textSize="20sp"/>
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:src="@mipmap/refresh"/>
     </RelativeLayout>
 
     <LinearLayout
@@ -47,7 +40,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.0"
-            android:drawableLeft="@mipmap/d00"
             android:gravity="center"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
@@ -59,7 +51,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.0"
-            android:drawableLeft="@mipmap/d00"
             android:gravity="center"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
@@ -71,7 +62,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.0"
-            android:drawableLeft="@mipmap/d00"
             android:gravity="center"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
@@ -84,7 +74,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.0"
-            android:drawableLeft="@mipmap/d00"
             android:gravity="center"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
@@ -97,7 +86,7 @@
     <ImageView
         android:id="@+id/img_tabLine"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="3dp"
         android:contentDescription="@null"
         android:scaleType="matrix"/>
 

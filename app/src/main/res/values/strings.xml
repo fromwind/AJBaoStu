@@ -45,4 +45,6 @@
     <string name="old_pass">请输入旧密码</string>
     <string name="new_pass">请输入新密码</string>
     <string name="confirm_new_pass">请确认新密码</string>
+    <string name="title_activity_apply_know">ApplyKnow</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
