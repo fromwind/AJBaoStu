@@ -305,7 +305,6 @@ public class PracticeActivity extends BaseActivity {
                     break;
                 default:
                     dataItems = FindSpecial(a);
-
             }
 
             for (int i = 0; i < dataItems.size(); i++) {
