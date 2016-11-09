@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.util.Log;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.tencent.smtt.sdk.QbSdk;
 import com.udit.aijiabao.configs.Constants;
 import com.udit.aijiabao.receiver.NetConnectReceiver;
 import com.udit.aijiabao.utils.EventEntity;
@@ -91,6 +92,8 @@ public class MyApplication extends Application {
 
             SDKInitializer.initialize(this);
             initImageLoader();
+            //x5浏览器内核预加载接口
+            QbSdk.initX5Environment(this,null);
         }
     }
 

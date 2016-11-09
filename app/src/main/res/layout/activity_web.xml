@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context="com.udit.aijiabao.activitys.ActivityWeb">
-<WebView
-    android:id="@+id/webview"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    ></WebView>
-</RelativeLayout>
+    <com.udit.aijiabao.widgets.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.tencent.smtt.sdk.WebView
+        android:id="@+id/webview"
+        android:layout_alignBottom="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></com.tencent.smtt.sdk.WebView>
+</LinearLayout>

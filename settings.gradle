@@ -1,1 +1,1 @@
-include ':app', ':xutils', ':ZhipuLibrary'//,":SystemBarTint"
+include ':app', ':xutils', ':ZhipuLibrary',"vitamio"//,":SystemBarTint"

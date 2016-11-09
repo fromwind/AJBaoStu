@@ -48,8 +48,6 @@ public class PracticeAdapter extends PagerAdapter {
     private Map<Integer, Boolean> mapClick = new HashMap<Integer, Boolean>();
     private Map<Integer, String> mapMultiSelect = new HashMap<Integer, String>();
 
-    boolean isNext = false;
-
     String[] multi_answer;
     String youranswer;
     DbManager dbManager;
@@ -78,7 +76,8 @@ public class PracticeAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, final int position) {
         final ViewHolder holder = new ViewHolder();
         convertView = viewItems.get(position);
-        mposition=position;
+        mposition=position+ PracticeActivity.pos;
+        Log.e("bum:!!!","position:"+position);
         holder.questionType = (TextView) convertView.findViewById(R.id.activity_prepare_test_no);
         holder.question = (TextView) convertView.findViewById(R.id.activity_prepare_test_question);
         holder.img = (ImageView) convertView.findViewById(R.id.activity_prepare_test_img);
@@ -106,7 +105,7 @@ public class PracticeAdapter extends PagerAdapter {
         holder.tvD = (TextView) convertView.findViewById(R.id.vote_submit_select_text_d);
         holder.multi_choice = (TextView) convertView.findViewById(R.id.activity_prepare_test_multi_choice);
 
-        holder.totalText.setText(position + 1 + "/" + dataItems.size());
+        holder.totalText.setText(position + PracticeActivity.pos + "/" + PracticeActivity.allnum);
         //判断是否收藏，UI变换
         if (IsCollect(dataItems.get(position).getTopicId())) {
             holder.collectimg.setImageResource(R.mipmap.star_yellow);
@@ -158,7 +157,7 @@ public class PracticeAdapter extends PagerAdapter {
                     dataItems.get(position).getOptionC().equals("")) {
                 holder.questionType.setText("判断题");
                 holder.multi_choice.setVisibility(View.GONE);
-                holder.question.setText(position + 1 + ". " + dataItems.get(position).getTopic());
+                holder.question.setText(mposition + ". " + dataItems.get(position).getTopic());
                 holder.layoutA.setOnClickListener(new OnClickListener() {
 
                     @Override
@@ -176,7 +175,7 @@ public class PracticeAdapter extends PagerAdapter {
             } else {
                 holder.questionType.setText("单选题");
                 holder.multi_choice.setVisibility(View.GONE);
-                holder.question.setText(position + 1 + ". " + dataItems.get(position).getTopic());
+                holder.question.setText(mposition + ". " + dataItems.get(position).getTopic());
                 holder.layoutA.setOnClickListener(new OnClickListener() {
 
                     @Override
@@ -210,7 +209,7 @@ public class PracticeAdapter extends PagerAdapter {
         } else if (dataItems.get(position).getCorrectAnswer().length() > 1) {
             //多选题
             holder.questionType.setText("多选题");
-            holder.question.setText(position + 1 + ". " + dataItems.get(position).getTopic());
+            holder.question.setText(mposition + ". " + dataItems.get(position).getTopic());
             holder.multi_choice.setVisibility(View.VISIBLE);
             holder.layoutA.setOnClickListener(new OnClickListener() {
 
@@ -304,9 +303,11 @@ public class PracticeAdapter extends PagerAdapter {
         holder.question.setText(builder1);
         */
         // 最后一页修改"下一步"按钮文字
-        if (position == viewItems.size() - 1) {
-            holder.nextText.setText("返回");
-            holder.nextImage.setImageResource(R.mipmap.question_finish);
+        if (mposition == viewItems.size()) {
+            if (position+ PracticeActivity.pos== PracticeActivity.allnum){
+                holder.nextText.setText("返回");
+                holder.nextImage.setImageResource(R.mipmap.question_finish);
+            }
         }
         holder.previousBtn.setOnClickListener(new LinearOnClickListener(position - 1, false, position, holder));
         holder.nextBtn.setOnClickListener(new LinearOnClickListener(position + 1, true, position, holder));
@@ -411,7 +412,6 @@ public class PracticeAdapter extends PagerAdapter {
 
     private void doABCD(int position, String youranswer, ViewHolder holder) {
 
-        //保存做题进度，记得新的测试做题时清空该数据库（savequestioninfo）
         savePosition(PracticeActivity.a);
         if (map.containsKey(position)) {
             return;
@@ -612,16 +612,39 @@ public class PracticeAdapter extends PagerAdapter {
 
         @Override
         public void onClick(View v) {
-            if (mPosition == viewItems.size()) {
-                mContext.finish();
+            Log.e("bum","mposition:"+mposition+"____mPosition"+mPosition);
+            if (mIsNext){
+                if (mposition== PracticeActivity.allnum&&mPosition==viewItems.size()){
+                    mContext.finish();
+                }else if (mPosition == PracticeActivity.num) {
+                    if (mposition== PracticeActivity.allnum){
+                        mContext.finish();
+                    }else {
+                        PracticeActivity.pos= PracticeActivity.pos+ PracticeActivity.num;
+                        Log.e("bum","PracticeActivity.pos="+ PracticeActivity.pos);
+                        PracticeActivity.isNext=true;
+                        mContext.initData();
+                    }
+                }else mContext.setCurrentView(mPosition);
             } else {
                 if (mPosition == -1) {
-                    Toast.makeText(mContext, "已经是第一页", Toast.LENGTH_SHORT).show();
-                    return;
-                }else {
-                    isNext = mIsNext;
-                    mContext.setCurrentView(mPosition);
-                }
+                    if (PracticeActivity.pos==1){
+                        Toast.makeText(mContext, "已经是第一页", Toast.LENGTH_SHORT).show();
+                        return;
+                    }else {
+                        if (PracticeActivity.pos< PracticeActivity.num){
+                            PracticeActivity.po= PracticeActivity.pos;
+                            PracticeActivity.pos=1;
+                            PracticeActivity.isNext=false;
+                            mContext.initData();
+                        }else {
+                            PracticeActivity.pos= PracticeActivity.pos- PracticeActivity.num;
+                            PracticeActivity.isNext=false;
+                            mContext.initData();
+                        }
+                        Log.e("bum","PracticeActivity.pos="+ PracticeActivity.pos);
+                    }
+                }else mContext.setCurrentView(mPosition);
             }
         }
     }

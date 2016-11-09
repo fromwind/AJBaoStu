@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/gray_10"
+              android:orientation="vertical">
 
     <include layout="@layout/comment_layout"/>
 
     <LinearLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/btn_height"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <LinearLayout
             android:id="@+id/standard_layout"
@@ -23,18 +26,16 @@
             android:gravity="center">
 
             <TextView
-                android:background="@drawable/item_click_selector"
-                android:padding="10dp"
                 android:id="@+id/standard_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:drawableLeft="@mipmap/d00"
+                android:background="@drawable/item_click_selector"
+                android:drawableTop="@mipmap/project2_standard"
                 android:gravity="center"
+                android:padding="10dp"
                 android:text="合格标准"
-                android:textSize="@dimen/font_body" />
-
+                android:textSize="@dimen/font_body"/>
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/experience_layout"
@@ -45,17 +46,16 @@
             android:gravity="center">
 
             <TextView
-                android:padding="10dp"
-                android:background="@drawable/item_click_selector"
                 android:id="@+id/experience_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:drawableLeft="@mipmap/d00"
+                android:background="@drawable/item_click_selector"
+                android:drawableTop="@mipmap/project2_skill"
                 android:gravity="center"
-                android:text="考试经验"
-                android:textSize="@dimen/font_body" />
+                android:padding="10dp"
+                android:text="技巧经验"
+                android:textSize="@dimen/font_body"/>
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/technique_layout"
@@ -65,20 +65,16 @@
             android:background="@drawable/item_click_selector"
             android:gravity="center">
 
-
             <TextView
-                android:background="@drawable/item_click_selector"
-                android:padding="10dp"
                 android:id="@+id/technique_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:drawableLeft="@mipmap/d00"
+                android:background="@drawable/item_click_selector"
+                android:drawableTop="@mipmap/project2_appoint"
                 android:gravity="center"
-                android:text="考试技巧"
-                android:textSize="@dimen/font_body" />
-
-
-
+                android:padding="10dp"
+                android:text="考试预约"
+                android:textSize="@dimen/font_body"/>
 
         </LinearLayout>
 
@@ -87,15 +83,23 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/movie"
+        android:drawablePadding="10dp"
+        android:gravity="left|center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
         android:text="教学视频"
-        android:textSize="@dimen/font_body" />
+        android:textSize="@dimen/font_body"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gray"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/gray_30"
         />
 
 </LinearLayout>

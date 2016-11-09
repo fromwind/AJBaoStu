@@ -1,6 +1,7 @@
 package com.udit.aijiabao.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,6 +22,9 @@ import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.holder.Holder;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.udit.aijiabao.R;
+import com.udit.aijiabao.activitys.ActivityWeb;
+import com.udit.aijiabao.activitys.VideoViewActivity;
+import com.udit.aijiabao.activitys.project2_skillclass;
 import com.udit.aijiabao.madapters.LocalImageHolderView;
 import com.udit.aijiabao.utils.T;
 
@@ -44,8 +48,6 @@ public class SubjectTwoFragment extends Fragment {
 
     @ViewInject(R.id.recycleView)
     private RecyclerView mRecyclerView;
-
-
     private SubjectAdapter adapter;
 
     public static SubjectTwoFragment newInstance() {
@@ -138,6 +140,8 @@ public class SubjectTwoFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         T.show(context, position + "");
+                        Intent appIntent = new Intent(getActivity(),VideoViewActivity.class);
+                        startActivity(appIntent);
                     }
                 });
 
@@ -183,28 +187,27 @@ public class SubjectTwoFragment extends Fragment {
                 switch (v.getId()){
                     case R.id.standard_layout:
                     case R.id.standard_text:
-
+                        Intent intent=new Intent();
+                        intent.putExtra("url","file:///android_asset/project2_standom.html");
+                        intent.setClass(getActivity(),ActivityWeb.class);
+                        startActivity(intent);
                         T.show(context,"标准");
-
                         break;
 
                     case R.id.experience_layout:
                     case R.id.experience_text:
-                        T.show(context,"经验");
-
+                        T.show(context,"技巧");
+                        startActivity(new Intent(getActivity(),project2_skillclass.class));
                         break;
 
                     case R.id.technique_layout:
                     case R.id.technique_text:
 
-                        T.show(context,"技巧");
+                        T.show(context,"预约");
                         break;
-
                 }
             }
         }
-
-
         @Override
         public int getItemCount() {
             return 10;
