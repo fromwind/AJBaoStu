@@ -45,9 +45,6 @@ public class CustomMediaController extends MediaController {
     private GestureDetector mGestureDetector;
 
     VideoViewActivity activity;
-    private ImageView mediacontroller_previous;
-    private ImageView mediacontroller_next;
-    private ImageView mediacontroller_screen_fit;
     /**
      * public static final int VIDEO_LAYOUT_ORIGIN
      缩放参数，原始画面大小。
@@ -68,9 +65,7 @@ public class CustomMediaController extends MediaController {
     private String[] strDialogs=new String[]{"100%","全屏","拉伸","裁剪"};
     private int[] imgs=new int[]{R.mipmap.mediacontroller_sreen_size_100,R.mipmap.mediacontroller_screen_fit,R.mipmap.mediacontroller_screen_size,R.mipmap.mediacontroller_sreen_size_crop};
     private int mCurrentPageSize=2;
-
     private TextView currenttime_tv;
-
     private Handler mDismissHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -97,42 +92,14 @@ public class CustomMediaController extends MediaController {
 
     @Override
     protected void initOtherView() {
-        mediacontroller_previous= (ImageView) mRoot.findViewById(R.id.mediacontroller_previous);
-        mediacontroller_next= (ImageView) mRoot.findViewById(R.id.mediacontroller_next);
-        mediacontroller_screen_fit= (ImageView) mRoot.findViewById(R.id.mediacontroller_screen_fit);
-        mediacontroller_previous.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.reverseVideo();
-            }
-        });
-        mediacontroller_next.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activity.speedVideo();
-            }
-        });
-        mediacontroller_screen_fit.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mCurrentPageSize++;
-                if(mCurrentPageSize>3){
-                    mCurrentPageSize=0;
-                }
-                T.show(activity,strDialogs[mCurrentPageSize]);
-                mediacontroller_screen_fit.setBackground(getResources().getDrawable(imgs[mCurrentPageSize]));
-                activity.setVideoPageSize(mCurrentPageSize);
-            }
-        });
         currenttime_tv=(TextView) mRoot.findViewById(R.id.currenttime_tv);
-        
+
         mVolumeBrightnessLayout = mRoot.findViewById(R.id.operation_volume_brightness);
         mOperationBg = (ImageView) mRoot.findViewById(R.id.operation_bg);
         mOperationPercent = (ImageView) mRoot.findViewById(R.id.operation_percent);
         mRoot.setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Log.e("bum", "onTouchEvent");
                 if (mGestureDetector.onTouchEvent(event)) {
                     return true;
                 }
@@ -155,6 +122,7 @@ public class CustomMediaController extends MediaController {
         mDismissHandler.removeMessages(0);
         mDismissHandler.sendEmptyMessageDelayed(0, 500);
     }
+
     private class VolumeBrightnesGestureListener extends GestureDetector.SimpleOnGestureListener {
         @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
@@ -229,6 +197,5 @@ public class CustomMediaController extends MediaController {
         lp.width = (int) (findViewById(R.id.operation_full).getLayoutParams().width * lpa.screenBrightness);
         mOperationPercent.setLayoutParams(lp);
     }
-
 
 }

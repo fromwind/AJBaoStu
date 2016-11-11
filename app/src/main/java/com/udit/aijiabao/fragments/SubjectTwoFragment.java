@@ -12,19 +12,18 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
-import com.bigkoo.convenientbanner.holder.Holder;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.udit.aijiabao.R;
 import com.udit.aijiabao.activitys.ActivityWeb;
 import com.udit.aijiabao.activitys.VideoViewActivity;
 import com.udit.aijiabao.activitys.project2_skillclass;
+import com.udit.aijiabao.entitys.Movies;
 import com.udit.aijiabao.madapters.LocalImageHolderView;
 import com.udit.aijiabao.utils.T;
 
@@ -45,11 +44,10 @@ public class SubjectTwoFragment extends Fragment {
 
     private static SubjectTwoFragment twoFragment;
 
-
     @ViewInject(R.id.recycleView)
     private RecyclerView mRecyclerView;
     private SubjectAdapter adapter;
-
+    private List<Movies> moviesList;
     public static SubjectTwoFragment newInstance() {
         twoFragment = new SubjectTwoFragment();
         return twoFragment; 
@@ -64,7 +62,6 @@ public class SubjectTwoFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -82,9 +79,19 @@ public class SubjectTwoFragment extends Fragment {
         localImages.add(R.mipmap.banner2);
         localImages.add(R.mipmap.banner3);
         localImages.add(R.mipmap.banner4);
-
+        Movies movie1=new Movies("直角拐弯",R.mipmap.p1,"http://bmob-cdn-6792.b0.upaiyun.com/2016/11/09/1dff92d9400f9c2a8054e96bb28d1235.flv",false,"08:88");
+        Movies movie2=new Movies("倒车入库",R.mipmap.p1,"http://bmob-cdn-6792.b0.upaiyun.com/2016/11/09/b842fa5d40004d6c80914b31aba3ebf7.flv",true,"05:88");
+        Movies movie3=new Movies("侧方位停车",R.mipmap.p1,"http://bmob-cdn-6792.b0.upaiyun.com/2016/11/09/634c004840dedcf3804029ee8a6fffa3.flv",false,"18:88");
+        Movies movie4=new Movies("坡道起步",R.mipmap.p1,"http://bmob-cdn-6792.b0.upaiyun.com/2016/11/09/557c9672406c424e8079833aef02b7c6.flv",false,"28:88");
+        Movies movie5=new Movies("曲线行驶",R.mipmap.p1,"http://bmob-cdn-6792.b0.upaiyun.com/2016/11/09/de66500b4008bb66802e024b04c61b79.flv",false,"38:88");
+        moviesList=new ArrayList<Movies>();
+        moviesList.add(movie1);
+        moviesList.add(movie2);
+        moviesList.add(movie3);
+        moviesList.add(movie4);
+        moviesList.add(movie5);
         adapter.setLocalImages(localImages);
-
+        adapter.setListMovies(moviesList);
         adapter.notifyDataSetChanged();
     }
 
@@ -94,15 +101,13 @@ public class SubjectTwoFragment extends Fragment {
         private static final int TYPE_ITEM = 0;
 
         private Context context;
-
         private List<Integer> localImages;
-
         private ClickListener mClickListener;
-
+        private List<Movies> moviesList;
         public void setLocalImages(List<Integer> localImages) {
             this.localImages = localImages;
         }
-
+        public void setListMovies(List<Movies> moviesList){this.moviesList=moviesList;}
         public SubjectAdapter(Context context) {
             this.context = context;
             mClickListener = new ClickListener();
@@ -120,7 +125,6 @@ public class SubjectTwoFragment extends Fragment {
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
             if (viewType == TYPE_ITEM) {
                 View view = LayoutInflater.from(context).inflate(R.layout.item_subject, parent, false);
                 return new ItemHolder(view);
@@ -135,20 +139,22 @@ public class SubjectTwoFragment extends Fragment {
         public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
             if (holder instanceof ItemHolder) {
                 ItemHolder itemHolder = (ItemHolder) holder;
-
                 itemHolder.item.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         T.show(context, position + "");
                         Intent appIntent = new Intent(getActivity(),VideoViewActivity.class);
+                        appIntent.putExtra("url",moviesList.get(position-1).getPath());
                         startActivity(appIntent);
                     }
                 });
-
+                itemHolder.movie_name.setText(moviesList.get(position-1).getName());
+                itemHolder.movie_downtxt.setText(moviesList.get(position-1).isLocal()?"已下载":"未下载");
+                itemHolder.movie_downtxt.setTextColor(moviesList.get(position-1).isLocal()?getResources().getColor(R.color.green):getResources().getColor(R.color.red));
+                itemHolder.img_proj2.setImageResource(moviesList.get(position-1).getImg());
             } else if (holder instanceof HeadHolder) {
                 HeadHolder headHolder = (HeadHolder) holder;
                 headHolder.banner.
-
                         setPages(
                                 new CBViewHolderCreator<LocalImageHolderView>() {
                                     @Override
@@ -169,14 +175,12 @@ public class SubjectTwoFragment extends Fragment {
                         T.show(context,position+"");
                     }
                 });
-
                 headHolder.experience.setOnClickListener(mClickListener);
                 headHolder.experienceTxt.setOnClickListener(mClickListener);
                 headHolder.standard.setOnClickListener(mClickListener);
                 headHolder.standardTxt.setOnClickListener(mClickListener);
                 headHolder.technique.setOnClickListener(mClickListener);
                 headHolder.techniqueTxt.setOnClickListener(mClickListener);
-
             }
         }
 
@@ -210,7 +214,7 @@ public class SubjectTwoFragment extends Fragment {
         }
         @Override
         public int getItemCount() {
-            return 10;
+            return moviesList.size()+1;
         }
 
         private class HeadHolder extends RecyclerView.ViewHolder {
@@ -252,13 +256,18 @@ public class SubjectTwoFragment extends Fragment {
         }
 
         private class ItemHolder extends RecyclerView.ViewHolder {
-
             LinearLayout item;
-
+            ImageView img_proj2;
+            ImageView movie_download;
+            TextView movie_name,movie_downtxt,movie_big;
             public ItemHolder(View itemView) {
                 super(itemView);
-
                 item= (LinearLayout) itemView.findViewById(R.id.item_layout);
+                img_proj2= (ImageView) itemView.findViewById(R.id.item_movie);
+                movie_download= (ImageView) itemView.findViewById(R.id.item_movie_download);
+                movie_name= (TextView) itemView.findViewById(R.id.item_movie_name);
+                movie_downtxt= (TextView) itemView.findViewById(R.id.item_movie_downtxt);
+                movie_big= (TextView) itemView.findViewById(R.id.item_movie_big);
             }
         }
 
