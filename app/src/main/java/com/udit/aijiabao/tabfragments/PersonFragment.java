@@ -30,6 +30,7 @@ import com.udit.aijiabao.activitys.MineCoachActivity;
 import com.udit.aijiabao.activitys.MineMessageActivity;
 import com.udit.aijiabao.activitys.MineProjectActivty;
 import com.udit.aijiabao.activitys.MineSchoolActivity;
+import com.udit.aijiabao.activitys.MyDown;
 import com.udit.aijiabao.activitys.SettingActivity;
 import com.udit.aijiabao.activitys.UpdatePassActivty;
 import com.udit.aijiabao.activitys.UserInfoActivity;
@@ -145,7 +146,8 @@ public class PersonFragment extends Fragment {
         List<MessageEntity> all;
         all = null;
         try {
-            all = db.selector(MessageEntity.class).where("deleted", "=", false).and("read", "=", false).and("user","=",User.getLocalUserName()).findAll();
+            all = db.selector(MessageEntity.class).where("deleted", "=", false).and("read", "=", false).and("user",
+                    "=", User.getLocalUserName()).findAll();
             Log.e("Bum_not_read", "=" + all.size());
         } catch (DbException e) {
             e.printStackTrace();
@@ -172,95 +174,90 @@ public class PersonFragment extends Fragment {
             R.id.me_password_layout,
             R.id.me_setup_layout,
             R.id.me_help_layout,
-            R.id.me_school_layout
+            R.id.me_school_layout,
+            R.id.me_down_layout
     }, type = View.OnClickListener.class)
     private void click(View view) {
+        switch (view.getId()) {
+            case R.id.me_down_layout:
+                startActivity(MyDown.class);
+                break;
+            case R.id.me_help_layout:
+                startActivity(HelperActivity.class);
+                break;
+            default:
+                if (TextUtils.isEmpty(User.getAuthToken())) {
 
-        if (view.getId() == R.id.me_help_layout) {
-            startActivity(HelperActivity.class);
+                    back.clickView(2);
+                    startActivityForResult(new Intent(getActivity(), LoginActivity.class), Constants.LOGIN_RESQ);
+                    getActivity().overridePendingTransition(R.anim.push_right_to_left_in,
+                            R.anim.push_right_to_left_out);
+                } else {
+                    switch (view.getId()) {
+                        case R.id.mLogin_btn:
+                            back.clickView(2);
+                            startActivityForResult(new Intent(getActivity(), LoginActivity.class), Constants.LOGIN_RESQ);
+                            getActivity().overridePendingTransition(R.anim.push_right_to_left_in,
+                                    R.anim.push_right_to_left_out);
+                            break;
 
-        } else {
+                        case R.id.me_info_layout:
+                            startActivity(UserInfoActivity.class);
+                            break;
+                        case R.id.me_yuyue_layout:
+                            if (TextUtils.isEmpty(PreferencesUtils.getString(Constants.SCHOOL, ""))) {
+                                new WarnDialog(getActivity())
+                                        .builder()
+                                        .setTip1("温馨提示")
+                                        .setTip2("亲，驾校还没有您的信息.请先报名哦！")
+                                        .show();
+                            } else {
+                                startActivity(MineAppointActivty.class);
+                            }
+                            break;
+                        case R.id.me_item_layout:
+                            if (TextUtils.isEmpty(PreferencesUtils.getString(Constants.SCHOOL, ""))) {
+                                new WarnDialog(getActivity())
+                                        .builder()
+                                        .setTip1("温馨提示")
+                                        .setTip2("亲，驾校还没有您的信息.请先报名哦！")
+                                        .show();
+                            } else {
+                                startActivity(MineProjectActivty.class);
+                            }
+                            break;
+                        case R.id.me_message_layout:
+                            startActivity(MineMessageActivity.class);
+                            break;
+                        case R.id.me_teacher_layout:
+                            if (TextUtils.isEmpty(PreferencesUtils.getString(Constants.SCHOOL, ""))) {
+                                new WarnDialog(getActivity())
+                                        .builder()
+                                        .setTip1("温馨提示")
+                                        .setTip2("亲，驾校还没有您的信息.请先报名哦！")
+                                        .show();
+                            } else startActivity(MineCoachActivity.class);
+                            break;
+                        case R.id.me_school_layout:
+                            if (TextUtils.isEmpty(PreferencesUtils.getString(Constants.SCHOOL, ""))) {
+                                new WarnDialog(getActivity())
+                                        .builder()
+                                        .setTip1("温馨提示")
+                                        .setTip2("亲，驾校还没有您的信息.请先报名哦！")
+                                        .show();
+                            } else {
+                                startActivity(MineSchoolActivity.class);
+                            }
+                            break;
+                        case R.id.me_password_layout:
+                            startActivity(UpdatePassActivty.class);
+                            break;
+                        case R.id.me_setup_layout:
+                            startActivity(SettingActivity.class);
+                            break;
 
-            if (TextUtils.isEmpty(User.getAuthToken())) {
-
-                back.clickView(2);
-                startActivityForResult(new Intent(getActivity(), LoginActivity.class), Constants.LOGIN_RESQ);
-                getActivity().overridePendingTransition(R.anim.push_right_to_left_in,
-                        R.anim.push_right_to_left_out);
-
-            } else {
-                switch (view.getId()) {
-                    case R.id.mLogin_btn:
-                        back.clickView(2);
-                        startActivityForResult(new Intent(getActivity(), LoginActivity.class), Constants.LOGIN_RESQ);
-                        getActivity().overridePendingTransition(R.anim.push_right_to_left_in,
-                                R.anim.push_right_to_left_out);
-                        break;
-
-                    case R.id.me_info_layout:
-                        startActivity(UserInfoActivity.class);
-                        break;
-                    case R.id.me_yuyue_layout:
-                        if (TextUtils.isEmpty(PreferencesUtils.getString(Constants.SCHOOL, ""))) {
-                            new WarnDialog(getActivity())
-                                    .builder()
-                                    .setTip1("温馨提示")
-                                    .setTip2("亲，驾校还没有您的信息.请先报名哦！")
-                                    .show();
-                        } else {
-                            startActivity(MineAppointActivty.class);
-                        }
-                        break;
-                    case R.id.me_item_layout:
-                        if (TextUtils.isEmpty(PreferencesUtils.getString(Constants.SCHOOL, ""))) {
-                            new WarnDialog(getActivity())
-                                    .builder()
-                                    .setTip1("温馨提示")
-                                    .setTip2("亲，驾校还没有您的信息.请先报名哦！")
-                                    .show();
-                        } else {
-                            startActivity(MineProjectActivty.class);
-                        }
-                        break;
-                    case R.id.me_message_layout:
-                        startActivity(MineMessageActivity.class);
-                        break;
-                    case R.id.me_teacher_layout:
-
-                        if (TextUtils.isEmpty(PreferencesUtils.getString(Constants.SCHOOL, ""))) {
-                            new WarnDialog(getActivity())
-                                    .builder()
-                                    .setTip1("温馨提示")
-                                    .setTip2("亲，驾校还没有您的信息.请先报名哦！")
-                                    .show();
-                        } else {
-                            //有绑定驾校
-                            startActivity(MineCoachActivity.class);
-                        }
-
-                        break;
-
-                    case R.id.me_school_layout:
-
-                        if (TextUtils.isEmpty(PreferencesUtils.getString(Constants.SCHOOL, ""))) {
-                            new WarnDialog(getActivity())
-                                    .builder()
-                                    .setTip1("温馨提示")
-                                    .setTip2("亲，驾校还没有您的信息.请先报名哦！")
-                                    .show();
-                        } else {
-                            startActivity(MineSchoolActivity.class);
-                        }
-                        break;
-
-                    case R.id.me_password_layout:
-                        startActivity(UpdatePassActivty.class);
-                        break;
-                    case R.id.me_setup_layout:
-                        startActivity(SettingActivity.class);
-                        break;
+                    }
                 }
-            }
         }
     }
 
@@ -335,7 +332,7 @@ public class PersonFragment extends Fragment {
             int gg = a.indexOf("：", ff + 26);
             //Log.e("Bum04", a.substring(ff + 2, gg - 11));
             msg = new MessageEntity(msg.getContent(), msg.getMsg_type(), msg.getCreated_at(), msg.getNotify_id(),
-                    false, false, a.substring(ff + 2, gg - 11),User.getLocalUserName());
+                    false, false, a.substring(ff + 2, gg - 11), User.getLocalUserName());
             try {
                 db.save(msg);
             } catch (DbException e) {
@@ -343,7 +340,6 @@ public class PersonFragment extends Fragment {
             }
         }
     }
-
 
     public void startActivity(Class Class) {
         Intent intent = new Intent(getContext(), Class);

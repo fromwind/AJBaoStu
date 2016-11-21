@@ -462,7 +462,51 @@
                     android:layout_marginTop="20dp"
                     android:background="@color/gray_10"/>
             </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/me_down_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_click_selector"
+                android:clickable="true">
 
+                <com.udit.aijiabao.utils.ui.CircleImageView
+                    android:id="@+id/me_down_image"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@mipmap/me_down"/>
+
+                <TextView
+                    android:id="@+id/me_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/me_down_image"
+                    android:text="下载管理"
+                    android:textColor="@color/gray_80"
+                    android:textSize="15sp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/img_right"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"/>
+                <View
+                    android:id="@+id/my_down_line"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/me_down"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/gray_10"/>
+            </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/me_setup_layout"
                 android:layout_width="fill_parent"

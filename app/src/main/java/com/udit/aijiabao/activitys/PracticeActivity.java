@@ -81,7 +81,6 @@ public class PracticeActivity extends BaseActivity {
                         finish();
                     }
                 });
-
                 break;
             case "collect":
                 mtitleView.setTitleLayoutColor(getResources().getColor(R.color.blue_title));

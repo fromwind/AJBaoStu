@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="120dp"
+              android:layout_height="110dp"
               android:gravity="center_vertical"
               android:orientation="vertical">
 
@@ -12,13 +12,16 @@
         android:background="@drawable/item_click_selector"
         android:clickable="true"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp">
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_weight="1">
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.8">
 
             <ImageView
                 android:id="@+id/item_movie"
@@ -28,6 +31,7 @@
                 android:scaleType="fitXY"/>
 
             <TextView
+                android:id="@+id/item_movie_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -39,7 +43,7 @@
 
         </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -57,37 +61,23 @@
                     android:layout_marginLeft="12dp"
                     android:layout_centerVertical="true"
                     android:text="倒车入库"
-                    android:textSize="16sp"/>
+                    android:textSize="14sp"/>
 
                 <ImageView
-                    android:id="@+id/item_movie_download"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/item_movie_down_or_delete"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_alignParentRight="true"
-
                     android:layout_marginRight="10dp"
                     android:src="@mipmap/download"/>
 
             </RelativeLayout>
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:layout_gravity="center"
-                    android:text=""
-                    android:textSize="10sp"/>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
                 <TextView
                     android:id="@+id/item_movie_downtxt"
@@ -98,7 +88,16 @@
                     android:text="未下载"
                     android:textSize="12sp"/>
                 <TextView
-                    android:id="@+id/item_movie_big"
+                    android:id="@+id/item_movie_down_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:text="0%"
+                    android:textSize="12sp"/>
+                <TextView
+                    android:id="@+id/item_movie_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -108,13 +107,11 @@
 
             </LinearLayout>
 
-
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="10dp"/>
-
-
+        android:layout_height="1dp"
+        android:background="@color/gray_10"/>
 </LinearLayout>

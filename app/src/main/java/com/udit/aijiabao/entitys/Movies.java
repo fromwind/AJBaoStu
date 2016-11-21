@@ -1,32 +1,67 @@
 package com.udit.aijiabao.entitys;
 
+import org.xutils.db.annotation.Column;
+import org.xutils.db.annotation.Table;
+
+@Table(name = "movie")
 public class Movies {
-
+    @Column(name = "id",isId = true,autoGen = false)
+    private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "img")
     private int img;
-    private String path;
-    private boolean isLocal;
+    @Column(name = "url")
+    private String url;
+    @Column(name = "time")
     private String time;
+    @Column(name = "size")
+    private double size;
+    @Column(name = "percent")
+    private double precent=0;
 
-    public Movies(String name, int img, String path, boolean isLocal, String time) {
+    @Column(name = "project")
+    private String project;//2or3
+    public Movies() {
+    }
+
+    public Movies(int id,String name, int img, String url, String time,double size,String project) {
+        this.id=id;
         this.name = name;
         this.img = img;
-        this.path = path;
-        this.isLocal = isLocal;
+        this.url = url;
         this.time = time;
+        this.size=size;
+        this.project=project;
+    }
+
+    public double getPrecent() {
+        return precent;
+    }
+
+    public void setPrecent(double precent) {
+        this.precent = precent;
     }
 
     @Override
     public String toString() {
         return "Movies{" +
-                "name='" + name + '\'' +
-                ", img='" + img + '\'' +
-                ", path='" + path + '\'' +
-                ", isLocal=" + isLocal +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", img=" + img +
+                ", url='" + url + '\'' +
                 ", time='" + time + '\'' +
+                ", size=" + size +
                 '}';
     }
 
+    public String getProject() {
+        return project;
+    }
+
+    public void setProject(String project) {
+        this.project = project;
+    }
     public String getName() {
         return name;
     }
@@ -43,20 +78,28 @@ public class Movies {
         this.img = img;
     }
 
-    public String getPath() {
-        return path;
+    public String getUrl() {
+        return url;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public double getSize() {
+        return size;
     }
 
-    public boolean isLocal() {
-        return isLocal;
+    public int getId() {
+        return id;
     }
 
-    public void setLocal(boolean local) {
-        isLocal = local;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSize(double size) {
+        this.size = size;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getTime() {

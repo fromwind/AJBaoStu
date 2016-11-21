@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.Looper;
 import android.util.Log;
 
 import com.baidu.mapapi.SDKInitializer;
@@ -47,7 +48,6 @@ public class MyApplication extends Application {
         }
         return instance;
     }
-
     @Override
     public void onCreate() {
         super.onCreate();

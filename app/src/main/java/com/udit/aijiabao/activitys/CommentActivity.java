@@ -100,7 +100,6 @@ public class CommentActivity extends BaseActivity {
         jxnl= (int) bar0.getRating();
         fwtd= (int) bar1.getRating();
         cnzj= (int) bar2.getRating();
-
         clzk= (int) bar3.getRating();
         myd= (int) bar4.getRating();
         comment(jxnl,fwtd,cnzj,clzk,myd);

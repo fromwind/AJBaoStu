@@ -1,9 +1,14 @@
 package com.udit.aijiabao.activitys;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.bigkoo.convenientbanner.ViewPagerScroller;
 import com.udit.aijiabao.BaseActivity;
@@ -29,7 +34,25 @@ import java.util.List;
 
 @ContentView(R.layout.activity_practice_test)
 public class Practice4Activity extends BaseActivity {
+    /**
+     * 动画控件
+     */
+    @ViewInject(R.id.loading)
+    private ImageView mLoading;
+
+    /**
+     * 数据加载动画
+     */
+    private AnimationDrawable mLoadingAinm;
+    @ViewInject(R.id.vote_submit_relative)
+    public RelativeLayout relativeLayout;
     public static String a;
+    public static int pos;
+    public static int po=111;
+    public static int allnum;
+    public static int num = 100;
+    public static boolean isNext = true;
+    public boolean isfirst = true;
     @ViewInject(R.id.titleView)
     private TitleView mtitleView;
     @ViewInject(R.id.vote_submit_viewpager)
@@ -37,15 +60,12 @@ public class Practice4Activity extends BaseActivity {
     Practice4Adapter pagerAdapter;
     List<View> viewItems = new ArrayList<View>();
     List<Question> dataItems = new ArrayList<Question>();
-
     DbManager dbManager;
-
     @Override
     public void setContentView() {
         Intent intent = getIntent();
         a = intent.getStringExtra("style");
-        Log.e("bum", "intent" + a);
-
+        //Log.e("bum", "intent" + a);
         dbManager = x.getDb(((MyApplication) getApplicationContext()).getDaoConfig4());
         switch (a) {
             case "order":
@@ -61,7 +81,6 @@ public class Practice4Activity extends BaseActivity {
                          finish();
                     }
                 });
-
                 break;
             case "collect":
                 mtitleView.setTitleLayoutColor(getResources().getColor(R.color.blue_title));
@@ -106,6 +125,10 @@ public class Practice4Activity extends BaseActivity {
                 });
                 break;
         }
+        pos = readPosition(a);
+        mLoading.setBackgroundResource(R.drawable.anim);
+        mLoadingAinm = (AnimationDrawable) mLoading.getBackground();
+        initViewPagerScroll();
     }
 
     @Override
@@ -115,29 +138,29 @@ public class Practice4Activity extends BaseActivity {
 
     @Override
     public void initData() {
-        initViewPagerScroll();
-        new dbthread().run();
+        mLoading.setVisibility(View.VISIBLE);
+        relativeLayout.setVisibility(View.GONE);
+        mLoadingAinm.start();
+        mhandler.sendEmptyMessageDelayed(2,10);
+        mhandler.sendEmptyMessageDelayed(1, 1500);
     }
 
-    private List<Question> FindSpecial(String s) {
-        List<Question> list = new ArrayList<Question>();
-        try {
-            list = dbManager.selector(Question.class).where("topicId", "LIKE", s + ".%").findAll();
-        } catch (DbException e) {
-            e.printStackTrace();
+    private Handler mhandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 1:
+                    mLoading.setVisibility(View.GONE);
+                    relativeLayout.setVisibility(View.VISIBLE);
+                    mLoadingAinm.stop();
+                    break;
+                case 2:
+                    new cdThread().run();
+                    break;
+            }
         }
-        return list;
-    }
-
-    private List<Question> findall() {
-        List<Question> list = new ArrayList<Question>();
-        try {
-            list = dbManager.findAll(Question.class);
-        } catch (DbException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
+    };
 
     /**
      * 设置ViewPager的滑动速度
@@ -158,9 +181,8 @@ public class Practice4Activity extends BaseActivity {
         }
     }
 
-
     public int readPosition(String type){
-        int a=0;
+        int a=1;
         switch (type){
             case "order":
                 try {
@@ -168,7 +190,6 @@ public class Practice4Activity extends BaseActivity {
                     a= questionPosition.getPosition();
                 } catch (DbException e) {
                     e.printStackTrace();
-
                 }
                 break;
             case "collect":
@@ -180,7 +201,6 @@ public class Practice4Activity extends BaseActivity {
                 }
                 break;
             case "error":
-
                 try {
                     QuestionPosition questionPosition=dbManager.findById(QuestionPosition.class,3);
                     a= questionPosition.getPosition();
@@ -312,9 +332,9 @@ public class Practice4Activity extends BaseActivity {
 
                 break;
         }
-        if (dataItems.size()>a)
-        return a;
-        else return 0;
+        if (a == 0)
+            return 1;
+        else return a;
     }
     /**
      * @param index 根据索引值切换页面
@@ -345,41 +365,93 @@ public class Practice4Activity extends BaseActivity {
         // TODO Auto-generated method stub
         super.onResume();
     }
-
-    private class dbthread extends Thread {
+    public class cdThread extends Thread {
         @Override
         public void run() {
             super.run();
-            switch (a) {
-                case "order":
-                    dataItems = findall();
-                    break;
-                case "error":
-                    dataItems=errorDb();
-                    break;
-                case "collect":
-                    dataItems=collectDb();
-                    break;
-                default:
-                    dataItems = FindSpecial(a);
-
-            }
-
-            for (int i = 0; i < dataItems.size(); i++) {
-                viewItems.add(getLayoutInflater().inflate(
-                        R.layout.vote_submit_viewpager_item, null));
-            }
-            pagerAdapter = new Practice4Adapter(
-                    Practice4Activity.this, viewItems,
-                    dataItems);
-            viewPager.setAdapter(pagerAdapter);
-            viewPager.getParent()
-                    .requestDisallowInterceptTouchEvent(false);
-            Log.e("bum_setCurrentView","a="+readPosition(a));
-            setCurrentView(readPosition(a));
+            initdata(isNext);
         }
     }
+    public void initdata(boolean isNext) {
+        dataItems.clear();
+        viewItems.clear();
+        switch (a) {
+            case "order":
+                dataItems = findpos(pos, num);
+                break;
+            case "error":
+                dataItems = errorDb();
+                break;
+            case "collect":
+                dataItems = collectDb();
+                break;
+            default:
+                dataItems = FindSpecial(a,pos,num);
+        }
+        for (int i = 0; i < dataItems.size(); i++) {
+            viewItems.add(getLayoutInflater().inflate(
+                    R.layout.vote_submit_viewpager_item, null));
+        }
+        pagerAdapter = new Practice4Adapter(
+                Practice4Activity.this, viewItems,
+                dataItems);
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.getParent()
+                .requestDisallowInterceptTouchEvent(false);
+        Log.e("bum_", "pos:"+pos+"po:"+po+"num:"+num);
+        if (isfirst) {
+            setCurrentView(0);
+            isfirst = false;
+        } else {
+            if (isNext) {
+                setCurrentView(0);
+                Log.e("bum_setCurrentView", "=0");
+            } else {
+                if (po<num){
+                    setCurrentView(po-2);
+                }else {
+                    setCurrentView(num - 1);
+                }
+            }
+        }
 
+    }
+    private List<Question> findpos(int pos, int num) {
+        List<Question> list = new ArrayList<Question>();
+        Question question;
+        try {
+            allnum = dbManager.findAll(Question.class).size();
+            for (int a = pos; a < pos + num; a++) {
+                if (a <=allnum) {
+                    question = dbManager.findById(Question.class, a);
+                    list.add(question);
+                }
+            }
+
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    private List<Question> FindSpecial(String s, int pos, int num) {
+        List<Question> list = new ArrayList<Question>();
+        try {
+            allnum = dbManager.selector(Question.class).where("topicId", "LIKE", s + ".%").findAll().size();
+            List<Question> list1 = new ArrayList<Question>();
+            Question question;
+            list1 = dbManager.selector(Question.class).where("topicId", "LIKE", s + ".%").findAll();
+            for (int a = pos; a < pos + num; a++) {
+                if (a <= allnum) {
+                    question = list1.get(a-1);
+                    list.add(question);
+                }
+            }
+
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
     private List<Question> collectDb() {
         List<Question> list = new ArrayList<Question>();
         try {

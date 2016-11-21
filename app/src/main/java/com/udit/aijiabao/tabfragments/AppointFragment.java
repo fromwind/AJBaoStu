@@ -534,13 +534,14 @@ public class AppointFragment extends Fragment implements AdapterView.OnItemClick
                         pDialog.setButton2("确认", new PromptDialog.OnClickListener() {
                             @Override
                             public void onClick(Dialog dialog, int which) {
-                                pDialog.setButton2TextColor(getResources().getColor(R.color.white));
+
                                 dialog.dismiss();
 
                                 Log.e("Bum",""+bean.getDate()+"/"+itemsBean.getPeriod());
                                 cancleAppoint(itemsBean);
                             }
                         });
+                        pDialog.setButton2TextColor(getResources().getColor(R.color.white));
                         pDialog.create().show();
 
                     }else{

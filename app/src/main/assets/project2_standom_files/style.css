@@ -2,7 +2,7 @@ body{color:#444444; font-family:Helvetica Neue; background:#f9f9f9;padding:10px 
 a{color:#505050; text-decoration:none;}
 h2{ text-align:center;font-size:22px;}
 h3{font-size:17px;padding:15px 0 0 0;margin:15px 10px 5px 10px; color:#000; background-image:-webkit-linear-gradient(90deg, #dddddd, #dddddd 50%, #f9f9f9 50%);background-size: 100% 1px; background-repeat: no-repeat; background-position: top;}
-
+i,em {font-style: normal;}
 .h3{ background:none;margin-top:0;padding-top:5px;}
 
 h4{font-size:16px;padding:0 10px;}
@@ -14,13 +14,22 @@ b a{color:#fff; text-decoration:none;}
 span{ color:#C90;}
 .p{padding-left:10px; }
 /*.p{padding-left:10px; text-indent:28px;}*/
-
+.cnt p {margin:0;padding:0;line-height:180%;position:relative;padding:10px 0 10px 45px;}
+.cnt p i {display:block;position:absolute;top:6px;left:0px;width:16px;height:16px;line-height:16px;font-weight:bold;
+padding:3px;font-size:15px;border-radius:50%;-webkit-border-radius:50%;background:#e5f5ff;text-align:center;color:#65bef6;}
+.cnt p img {margin:0 0 10px -36px;max-width:100%;margin:0 auto 10px auto;}
+.cnt p i{border:3px solid #b6e0fa;font-size:16px;width:15px;height:15px;line-height:15px;padding:7px;}
 .p2{padding-left:10px; text-indent:0;}
 hr{border:0;border-bottom:1px #ddd solid;}
 .kgimg{width:100%;margin-top:5px;}
 table{font-size:12px;}
 table td{padding:6px 4px;}
-
+.tip {font-size:14px;font-weight:100;line-height:200%;margin:50px auto 30px auto;padding:10px 15px;background:#e5f5ff;
+color:#FB7F6A;border-radius:8px;position:relative;border:4px solid #b6e0fa}
+.tip p{position:absolute;color:#38a8ef;top:-45px;margin:0;left:0}
+.tip p img{float:left;width:60px;height:30px;margin-top:11px}
+.tip p font{float:left;margin-top:15px;margin-left:5px;}
+.tip em {color:#404040}
 .install{width:100%;padding:8px 0;overflow:hidden;  background:url(line.png) repeat-x top center #f5f5f5; background-size:1px 1px; position:fixed;bottom:0;left:0;}
 .install span{width:40px;height:40px; background:url(http://picture.eclicks.cn/kaojiazhao/public/icon/kjzlogo_76_76.png) no-repeat; background-size:contain; float:left;margin-left:10px;}
 .install font{color:#333;width:50%;float:left;padding-left:10px;}

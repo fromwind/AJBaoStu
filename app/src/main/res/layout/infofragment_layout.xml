@@ -31,7 +31,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:orientation="horizontal"
         android:weightSum="4.0">
 
@@ -86,7 +86,7 @@
     <ImageView
         android:id="@+id/img_tabLine"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:contentDescription="@null"
         android:scaleType="matrix"/>
 

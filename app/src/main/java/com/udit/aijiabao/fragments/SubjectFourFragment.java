@@ -27,6 +27,7 @@ import com.udit.aijiabao.activitys.Practice4Activity;
 import com.udit.aijiabao.activitys.PracticeActivity;
 import com.udit.aijiabao.activitys.RealPractice4Activity;
 import com.udit.aijiabao.activitys.RealPracticeActivity;
+import com.udit.aijiabao.activitys.project_lawsclass;
 import com.udit.aijiabao.dialog.LoadDialog;
 import com.udit.aijiabao.dialog.PromptDialog;
 import com.udit.aijiabao.dialog.WarnDialog;
@@ -142,8 +143,10 @@ public class SubjectFourFragment extends Fragment {
                 startActivity(new Intent(getActivity(), ApplyKnow.class));
                 break;
             case R.id.project01_green_hand:
+                startActivity(new Intent(getActivity(), project_lawsclass.class).putExtra("lawsorgreen","green"));
                 break;
             case R.id.project01_laws:
+                startActivity(new Intent(getActivity(), project_lawsclass.class).putExtra("lawsorgreen","laws"));
                 break;
             case R.id.project01_order_practice:
                 haveText04("order");

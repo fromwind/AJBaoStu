@@ -77,7 +77,7 @@ public class PracticeAdapter extends PagerAdapter {
         final ViewHolder holder = new ViewHolder();
         convertView = viewItems.get(position);
         mposition=position+ PracticeActivity.pos;
-        Log.e("bum:!!!","position:"+position);
+        //Log.e("bum:!!!","position:"+position);
         holder.questionType = (TextView) convertView.findViewById(R.id.activity_prepare_test_no);
         holder.question = (TextView) convertView.findViewById(R.id.activity_prepare_test_question);
         holder.img = (ImageView) convertView.findViewById(R.id.activity_prepare_test_img);

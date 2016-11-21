@@ -23,6 +23,7 @@ import com.udit.aijiabao.activitys.PracticeActivity;
 import com.udit.aijiabao.activitys.ApplyKnow;
 import com.udit.aijiabao.activitys.ClassListActivity;
 import com.udit.aijiabao.activitys.RealPracticeActivity;
+import com.udit.aijiabao.activitys.project_lawsclass;
 import com.udit.aijiabao.dialog.LoadDialog;
 import com.udit.aijiabao.dialog.PromptDialog;
 import com.udit.aijiabao.dialog.WarnDialog;
@@ -133,8 +134,10 @@ public class SubjectOneFragment extends Fragment {
                 startActivity(new Intent(getActivity(), ApplyKnow.class));
                 break;
             case R.id.project01_green_hand:
+                startActivity(new Intent(getActivity(), project_lawsclass.class).putExtra("lawsorgreen","green"));
                 break;
             case R.id.project01_laws:
+                startActivity(new Intent(getActivity(), project_lawsclass.class).putExtra("lawsorgreen","laws"));
                 break;
             case R.id.project01_order_practice:
                 haveText01("order");
@@ -214,7 +217,7 @@ public class SubjectOneFragment extends Fragment {
 
     }
 
-    public class downloadThread extends Thread {
+    private class downloadThread extends Thread {
 
         @Override
         public void run() {
@@ -266,7 +269,6 @@ public class SubjectOneFragment extends Fragment {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 1:
-
                     ZipExtractorTask task = new ZipExtractorTask(zipfile.toString(), FileUtils.getproject1Path(),
                             getActivity(), true);
                     task.execute();
